@@ -1,9 +1,11 @@
 
 import "~/styles/globals.css";
 import { type AppType } from "next/app";
-import localFont from '@next/font/local'
+import localFont from 'next/font/local'
 
 import { api } from "~/utils/api";
+import { useSiteSettings } from "~/utils/store";
+import { useCallback } from "react";
 
 
 const trirongFont = localFont({
@@ -37,8 +39,17 @@ const marckScript = localFont({
 })
 
 const MyApp: AppType = ({ Component, pageProps }) => {
+
+  const {
+    mode
+  } = useSiteSettings(
+    useCallback((state) => ({
+        mode: state.visibilityMode
+    }), [])
+  )
+
   return (
-    <main className={`${trirongFont.variable} ${marckScript.variable}`}>
+    <main className={`overscroll-none ${trirongFont.variable} ${marckScript.variable}`}>
       <Component {...pageProps} />
     </main>
   );

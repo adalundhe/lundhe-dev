@@ -1,23 +1,33 @@
 import { NavBarItem } from "./NavBarItem"
+import { VisibilityModeButton } from './VisibilityModeButton'
+import { useSiteSettings } from '~/utils/store'
+import { useCallback } from "react"
+
 
 export const NavBar = () => {
 
     const linkItmes = ["resume", "blog", "about"];
     const linkTitles = linkItmes.map(linkItem => linkItem.charAt(0).toUpperCase() + linkItem.slice(1,))
+    const {
+        mode
+      } = useSiteSettings(
+        useCallback((state) => ({
+            mode: state.visibilityMode
+        }), [])
+      )
 
     return (
-    <nav className="w-[75%] h-fit px-8 flex justify-between"> 
-        <div key={`nav-home`} className="font-sans text-[3.5vw] flex items-center-justify-center">
+    <nav className={`row-span-2 w-[75%] h-fit grid grid-cols-8 gap-4 w-full ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}> 
+        <div className="font-sans text-[3.5vw] flex items-center-justify-center col-span-3">
             <NavBarItem 
                 link={'home'} 
-                title={'Ada Lundhe'} 
-                textType="header"
+                title={'Ada Lündhé'}
             />
         </div>
-        <div className="flex items-center justify-between w-1/2 text-[2.5vw]">
+        <div className="flex items-center justify-between text-[2.25vw] col-span-4">
         {
             linkItmes.map((linkItem, idx) => 
-                <div key={`nav-${linkItem} mx-4 flex items-center justify-center`}>
+                <div key={`nav-${linkItem}`} className="w-full flex justify-center">
                     <NavBarItem 
                         link={linkItem} 
                         title={linkTitles.at(idx) as string}
@@ -25,6 +35,9 @@ export const NavBar = () => {
                 </div>
             )
         }
+        </div>
+        <div className="flex items-center">
+             <VisibilityModeButton/>
         </div>
     </nav>
     )

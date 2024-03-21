@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background: #212121;
+  }
+
+.react-terminal {
+    height: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+}
+
+.react-terminal-wrapper {
+    height: 100% !important;
+    padding-top: 6vmin !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 75vmin !important;
+    
+}
+
+.react-terminal-line {
+    text-wrap: wrap !important;
+    overflow-y: hidden;
+    width: 100% !important;
+}

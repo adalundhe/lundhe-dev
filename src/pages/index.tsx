@@ -1,10 +1,23 @@
 import Head from "next/head";
-import { NavBar } from '~/components/navbar'
-
-
-
+import { useSiteSettings } from '~/utils/store'
+import {
+  AboutTerminal,
+  Footer,
+  NavBar,
+  SocialsNav
+} from '~/components'
+import { useCallback } from "react";
 
 export default function Home() {
+
+  const {
+    mode
+  } = useSiteSettings(
+    useCallback((state) => ({
+        mode: state.visibilityMode
+    }), [])
+  )
+
   return (
     <>
       <Head>
@@ -16,8 +29,15 @@ export default function Home() {
         <link rel="icon" type="image/png" sizes="any" href="/favicon.ico"/>
         <link rel="manifest" href="/favicon/site.webmanifest"/>
       </Head>
-      <main className={`w-screen h-screen font-serif`}>
+      <main 
+        className={`grid grid-rows-16 w-screen h-screen font-serif ${mode === 'light' ? 'bg-[#eeeeee]' : 'bg-[#212121]'}`}
+      >
         <NavBar/>
+        <div className={`px-8 row-span-6 ${mode === 'light' ? 'text-[#212121]' : 'text-[#eeeeee]'} w-full grid grid-cols-12`}>
+          <AboutTerminal />
+        </div>
+        <SocialsNav/>
+        <Footer/>
       </main>
     </>
   );
