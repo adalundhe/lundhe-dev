@@ -1,14 +1,17 @@
-import Head from "next/head";
+
 import { useSiteSettings } from '~/utils/store'
 import {
   AboutTerminal,
-  Footer,
-  NavBar,
-  SocialsNav
+  SocialsNav,
+  Transition
 } from '~/components'
-import { useCallback } from "react";
+import React, { forwardRef, useCallback } from 'react'
 
-export default function Home() {
+
+type IndexPageProps = {}
+type IndexPageRef = React.ForwardedRef<HTMLDivElement>
+
+const Home = (_: IndexPageProps, ref: IndexPageRef) => {
 
   const {
     mode
@@ -19,26 +22,19 @@ export default function Home() {
   )
 
   return (
-    <>
-      <Head>
-        <title>Ada Lündhé</title>
-        <meta name="description" content="Ada Lundhe's blog." />
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/>
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/>
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/>
-        <link rel="icon" type="image/png" sizes="any" href="/favicon.ico"/>
-        <link rel="manifest" href="/favicon/site.webmanifest"/>
-      </Head>
-      <main 
-        className={`grid grid-rows-16 w-screen h-screen font-serif ${mode === 'light' ? 'bg-[#eeeeee]' : 'bg-[#212121]'}`}
-      >
-        <NavBar/>
-        <div className={`px-8 row-span-6 ${mode === 'light' ? 'text-[#212121]' : 'text-[#eeeeee]'} w-full grid grid-cols-12`}>
-          <AboutTerminal />
+    <Transition ref={ref}>
+      <div className={`px-8 row-span-6 ${mode === 'light' ? 'text-[#212121]' : 'text-[#eeeeee]'} w-full grid grid-cols-12`}>
+        <AboutTerminal />
+      </div>
+      <div className='px-8 text-[4vmin] row-span-4 text-center flex justify-center items-center'>
+        <div className={`w-full font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#eeeeee]'}`}>
+          <p>Let's build together!</p>
         </div>
-        <SocialsNav/>
-        <Footer/>
-      </main>
-    </>
+      </div>
+      <SocialsNav/>
+    </Transition>
   );
 }
+
+
+export default forwardRef(Home)

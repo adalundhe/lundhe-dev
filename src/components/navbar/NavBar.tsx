@@ -6,7 +6,7 @@ import { useCallback } from "react"
 
 export const NavBar = () => {
 
-    const linkItmes = ["resume", "blog", "about"];
+    const linkItmes = ["about", "blog", "projects"];
     const linkTitles = linkItmes.map(linkItem => linkItem.charAt(0).toUpperCase() + linkItem.slice(1,))
     const {
         mode
@@ -17,14 +17,14 @@ export const NavBar = () => {
       )
 
     return (
-    <nav className={`row-span-2 w-[75%] h-fit grid grid-cols-8 gap-4 w-full ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}> 
+    <nav className={`row-span-2 py-4 w-[75%] h-fit grid grid-cols-8 gap-4 w-full ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}> 
         <div className="font-sans text-[3.5vw] flex items-center-justify-center col-span-3">
             <NavBarItem 
-                link={'home'} 
+                link={''} 
                 title={'Ada Lündhé'}
             />
         </div>
-        <div className="flex items-center justify-between text-[2.25vw] col-span-4">
+        <div className="flex items-center justify-between text-[2.25vw] col-span-4 font-serif">
         {
             linkItmes.map((linkItem, idx) => 
                 <div key={`nav-${linkItem}`} className="w-full flex justify-center">
@@ -36,7 +36,7 @@ export const NavBar = () => {
             )
         }
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center font-serif">
              <VisibilityModeButton/>
         </div>
     </nav>

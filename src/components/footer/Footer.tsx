@@ -17,14 +17,18 @@ export const Footer = () => {
     return (
         <footer 
             className={
-                `row-span-2 font-sans text-[2.5vmin] col-span-1 ${mode === 'light' ? ' bg-[#212121]' : 'bg-[#BDBDBD]'} flex items-center`
+                `row-span-2 w-full font-sans text-[2.5vmin] flex`
             }
         >
-            <p
-                className={`w-full text-center ${mode === 'light' ? 'text-[#BDBDBD]' : 'text-[#212121]'}`}
+            <div
+                className={`h-[80px] ${mode === 'light' ? ' bg-[#212121]' : 'bg-[#171717]'} flex items-center w-full self-end`}
             >
-                © Ada Lündhé {currentYear}
-            </p>
+                <p
+                    className={`w-full text-center ${mode === 'light' ? 'text-[#BDBDBD]' : 'text-[#eeeeee]'}`}
+                >
+                    © Ada Lündhé {currentYear}
+                </p>
+            </div>
         </footer>
     )
 }

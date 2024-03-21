@@ -8,8 +8,9 @@ export const NavBarItem = ({
     link: string,
     title: string | ReactNode
 }) => <Link 
-href={`/${link}`}
-className="my-6 text-center h-full w-full"
+    href={`/${link}`}
+    className="text-center h-full w-full"
+    scroll={false}
 >{ 
     title
 }</Link>

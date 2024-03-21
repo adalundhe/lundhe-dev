@@ -1,4 +1,6 @@
 export { Footer } from './footer'
+export { Header } from './header'
 export { NavBar } from './navbar'
 export { SocialsNav } from './socials'
+export { Transition } from './transition'
 export { AboutTerminal } from './terminal'

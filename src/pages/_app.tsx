@@ -4,8 +4,17 @@ import { type AppType } from "next/app";
 import localFont from 'next/font/local'
 
 import { api } from "~/utils/api";
-import { useSiteSettings } from "~/utils/store";
 import { useCallback } from "react";
+import { AnimatePresence } from 'framer-motion'
+import {
+  AboutTerminal,
+  Header,
+  Footer,
+  NavBar,
+  SocialsNav,
+  Transition
+} from '~/components'
+import { useSiteSettings } from "~/utils/store";
 
 
 const trirongFont = localFont({
@@ -38,7 +47,14 @@ const marckScript = localFont({
   variable: '--font-marck-script'
 })
 
-const MyApp: AppType = ({ Component, pageProps }) => {
+
+const MyApp: AppType = ({ Component, pageProps, router }) => {
+
+  const onExitComplete = useCallback(() => {
+      window.scrollTo({ top: 0 })
+    }
+  , [])  
+
 
   const {
     mode
@@ -49,8 +65,22 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   )
 
   return (
-    <main className={`overscroll-none ${trirongFont.variable} ${marckScript.variable}`}>
-      <Component {...pageProps} />
+   <main className={`${trirongFont.variable} ${marckScript.variable} w-screen h-screen ${mode === 'light' ? 'bg-[#eeeeee]' : 'bg-[#212121]'}`}>
+
+      <Header/>
+      <div className="w-full grid grid-rows-16 h-full">
+        <NavBar/>
+        <div className={`row-span-12 w-full font-serif`}>
+          <AnimatePresence
+            onExitComplete={onExitComplete}
+            mode="wait" 
+            initial={false}
+          >
+            <Component {...pageProps} key={router.asPath} />
+          </AnimatePresence>
+        </div>
+        <Footer/>
+      </div>
     </main>
   );
 };

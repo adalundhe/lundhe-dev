@@ -183,7 +183,7 @@ export const AboutTerminal = () => {
         <div className='col-span-1'></div>
         <div 
             className={
-                `w-full h-[65vmin] col-span-10 ${mode === 'light' ? '[&_div]:bg-[#212121]' : '[&_div]:bg-[#BDBDBD]'} flex justify-center`
+                `w-full h-[55vmin] col-span-10 ${mode === 'light' ? '[&_div]:bg-[#212121]' : '[&_div]:bg-[#BDBDBD]'} flex justify-center`
             } 
             ref={ref}
         >

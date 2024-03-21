@@ -51,7 +51,7 @@ export const SocialsNav = () => {
                 socials.map(platform =>
                 
                     <div 
-                        className="flex justify-center"
+                        className="flex justify-center items-center"
                         key={`social-link-${platform.name}`}
                     > 
                       <SocialsLink
