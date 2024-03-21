@@ -27,7 +27,7 @@ const Home = (_: IndexPageProps, ref: IndexPageRef) => {
         <AboutTerminal />
       </div>
       <div className='px-8 text-[4vmin] row-span-4 text-center flex justify-center items-center'>
-        <div className={`w-full font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#eeeeee]'}`}>
+        <div className={`text-[5vmin] w-full font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#eeeeee]'}`}>
           <p>Let&apos;s build together!</p>
         </div>
       </div>

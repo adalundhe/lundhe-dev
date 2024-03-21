@@ -24,7 +24,7 @@ export const VisibilityModeButton = () => {
                     mode === 'light' ? 'dark' : 'light'
                 )
             }}
-            className='h-fit text-[2.5vw]'
+            className='h-fit text-[4vmin]'
         >{
             mode === 'light' ? <FaSun/> : <MdDarkMode/>
         }</button>

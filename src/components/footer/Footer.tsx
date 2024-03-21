@@ -21,7 +21,7 @@ export const Footer = () => {
             }
         >
             <div
-                className={`h-[80px] ${mode === 'light' ? ' bg-[#212121]' : 'bg-[#171717]'} flex items-center w-full self-end`}
+                className={`h-[60px] ${mode === 'light' ? ' bg-[#212121]' : 'bg-[#171717]'} flex items-center w-full self-end`}
             >
                 <p
                     className={`w-full text-center ${mode === 'light' ? 'text-[#BDBDBD]' : 'text-[#eeeeee]'}`}
