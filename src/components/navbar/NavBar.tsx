@@ -1,5 +1,4 @@
 import { NavBarItem } from "./NavBarItem"
-import { IoTerminal } from "react-icons/io5";
 
 export const NavBar = () => {
 
