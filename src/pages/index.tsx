@@ -28,7 +28,7 @@ const Home = (_: IndexPageProps, ref: IndexPageRef) => {
       </div>
       <div className='px-8 text-[4vmin] row-span-4 text-center flex justify-center items-center'>
         <div className={`w-full font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#eeeeee]'}`}>
-          <p>Let's build together!</p>
+          <p>Let&apos;s build together!</p>
         </div>
       </div>
       <SocialsNav/>

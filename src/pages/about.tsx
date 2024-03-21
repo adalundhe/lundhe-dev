@@ -31,14 +31,14 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
                         Who are you?
                     </div>
                     <div className={`row-span-5 font-serif text-[1.5vmin] w-full ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
-                        <p> I'm a certified shmorgasboard software engineer who excels at building processes, teams, and tooling
+                        <p> I&apos;m a certified shmorgasboard software engineer who excels at building processes, teams, and tooling
                         that solves major pain points for engineering organizations.
                         </p>
                         <br/>
                         <p>
                             With over a decade of proven experience across a variety of domains - from small-town tourisgm to enterprise search and 
                             healthcare - I excel at building libraries, internal services, and infrastructure that helps product-facing developers 
-                            get things done more quickly and confidently at any scale. In particular I'm known for building the Python performance 
+                            get things done more quickly and confidently at any scale. In particular I&apos;m known for building the Python performance 
                             testing framework Hedra, which offers a unique workflow-based approach to performance testing.
                         </p>
                     </div>
@@ -53,7 +53,7 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
                         <p>
                             I primarily work in <i>Python</i>, <i>Typescript</i>, <i>C++</i>, and <i>GoLang</i>, but have plentiful experience with other languages like Rust or 
                             Scala. Likewise,  I most frequently work in environments using <i>AWS</i>, <i>Kubernetes</i>, <i>Docker</i>, and either <i>Github</i> or <i>GitLab</i> for CI/CD.
-                            I've also built and maintained distributed Google Cloud and Azure environments.
+                            I&apos;ve also built and maintained distributed Google Cloud and Azure environments.
                         </p>
                         <br/> 
                         <div>My DevOps and infrastructure experience includes the development, orchestratation, and maintenance of infrastructure
@@ -62,7 +62,7 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
                             rel="noopener noreferrer" 
                             target="_blank"
                         >FAIR</Link> and Oculus teams at Meta),
-                        including complex Spark deployments, SLURM clusters, and other sophisticated machine learning/AI pipelines and infrastructure. I've
+                        including complex Spark deployments, SLURM clusters, and other sophisticated machine learning/AI pipelines and infrastructure. I&apos;ve
                         also worked on the infrastructure behind serving users the Epic Games Unreal Engine, cloud gaming environments using Unreal Engine,
                         and Solr/Lucene enterprise search.
                         </div>
@@ -72,7 +72,7 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
             </div>
             <div className="w-full row-span-2"></div>
             <div className={`row-span-4 flex justify-center text-[3vmin] font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
-                Let's build together!
+                Let&apos;s build together!
             </div>
         </Transition>
     )
