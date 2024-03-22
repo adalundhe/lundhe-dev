@@ -33,7 +33,7 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
                         </div>
                         <div className="my-2 w-full"></div>
                         <div className="flex justify-center">
-                            <div className="w-3/4 text-[3vmin]">
+                            <div className={`w-3/4 text-[3vmin] w-3/4 text-[3vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
                                 <p className={`font-sans text-[4.5vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
                                         Who are you?
                                 </p>
@@ -52,7 +52,7 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
                         </div>
                         <div className="my-8 w-full"></div>
                         <div className="flex justify-center">
-                            <div className="w-3/4 text-[3vmin]">
+                            <div className={`w-3/4 text-[3vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
                                 <p className={`font-sans text-[4.5vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
                                     How do you do it?
                                 </p>
@@ -72,7 +72,7 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
                             </div>
                         </div>
                         <div className="my-6 w-full"></div>
-                        <div className={`pb-12 ${mode === 'light' ? 'font-sans text-[#212121]' : 'text-[#BDBDBD]'} flex justify-center items-center text-[5vmin]`}>
+                        <div className={`pb-12 font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'} flex justify-center items-center text-[5vmin]`}>
                             Let&apos;s build together!
                         </div>
                 </>
