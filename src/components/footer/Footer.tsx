@@ -44,7 +44,7 @@ export const Footer = () => {
             })
         }
 
-    }, [scrollDir])
+    }, [scrollDir, animate, scope])
 
     return (
         <footer 

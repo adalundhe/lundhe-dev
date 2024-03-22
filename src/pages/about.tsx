@@ -47,7 +47,7 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
             })
         }
 
-    }, [scrollDir])
+    }, [scrollDir, animate, scope])
 
 
     return (
