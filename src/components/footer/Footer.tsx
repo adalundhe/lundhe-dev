@@ -16,8 +16,7 @@ export const Footer = () => {
     const currentYear = new Date().getFullYear()
 
     const {
-        scrollDir,
-        animationState
+        scrollDir
     } = useScrollSettings((state) => ({
         scrollDir: state.scrollDirection,
         animationState: state.animationState
