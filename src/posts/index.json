@@ -1,0 +1,8 @@
+[
+    {
+        "title": "This is a Test",
+        "summary": "This is a test of the JSON indexing system",
+        "date": "2024-03-22",
+        "tags": ["test", "not-a-blog"]
+    }
+]
