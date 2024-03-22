@@ -1,11 +1,12 @@
 
-import { useCallback } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import React, { forwardRef } from 'react'
 import Link from "next/link";
 import {
     Transition
   } from '~/components'
-import { useSiteSettings } from "~/utils/store";
+import { useSiteSettings, useScrollSettings } from "~/utils/store";
+import { useAnimate } from "framer-motion";
 
 type AboutPageProps = {}
 type AboutPageRef = React.ForwardedRef<HTMLDivElement>
@@ -20,11 +21,50 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
         }), [])
       )
 
+    const {
+        scrollDir,
+        setScrollDirection
+    } = useScrollSettings((state) => ({
+        scrollDir: state.scrollDirection,
+        setScrollDirection: state.setScrollDirection
+    }))
+
+    const [scope, animate] = useAnimate()
+
+    useEffect(() => {
+
+        if (scrollDir === 'stable'){
+            animate(scope.current, {
+                height: '78vh'
+            }, {
+                duration: 0.25,
+            })
+        } else {
+            animate(scope.current, {
+                height: '90vh'
+            }, {
+                duration: 0.25
+            })
+        }
+
+    }, [scrollDir])
+
+
     return (
         <Transition ref={ref}>
             <div className="row-span-full overflow-hidden w-full">
-                <div className="overflow-y-scroll h-[80vh]">
-                    <div className={`flex justify-center text-[5vmin] font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
+                <div 
+                    className="overflow-y-scroll h-[78vh]"
+                    onScroll={() => {
+                        scope.current && setScrollDirection(
+                            scope.current.scrollTop + scope.current.clientHeight
+                        ) 
+                    }}
+                    ref={scope}
+                >
+                    <div 
+                        className={`flex justify-center text-[5vmin] font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}
+                    >
                         Hi there!
                     </div>
                     <div className="my-2 w-full"></div>

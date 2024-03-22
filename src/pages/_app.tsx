@@ -7,14 +7,11 @@ import { api } from "~/utils/api";
 import { useCallback } from "react";
 import { AnimatePresence } from 'framer-motion'
 import {
-  AboutTerminal,
   Header,
   Footer,
   NavBar,
-  SocialsNav,
-  Transition
 } from '~/components'
-import { useSiteSettings } from "~/utils/store";
+import { useScrollSettings, useSiteSettings } from "~/utils/store";
 
 
 const trirongFont = localFont({
@@ -64,13 +61,19 @@ const MyApp: AppType = ({ Component, pageProps, router }) => {
     }), [])
   )
 
+  const {
+      scrollDir
+  } = useScrollSettings((state) => ({
+      scrollDir: state.scrollDirection
+  }))
+
   return (
    <main className={`${trirongFont.variable} ${marckScript.variable} w-screen h-screen ${mode === 'light' ? 'bg-[#eeeeee]' : 'bg-[#212121]'}`}>
 
       <Header/>
       <div className="w-full grid grid-rows-16 h-full">
         <NavBar/>
-        <div className={`row-span-12 w-full font-serif`}>
+        <div className={`${ scrollDir === 'stable' ? 'row-span-12' : 'row-span-14' } w-full font-serif`}>
           <AnimatePresence
             onExitComplete={onExitComplete}
             mode="wait" 
