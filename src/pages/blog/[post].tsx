@@ -9,11 +9,14 @@ import {
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
 
 
+const knownPaths = ['/blog/not-found']
+
 export const getStaticProps = (async (context) => {
     // MDX text - can be from a local file, database, CMS, fetch, anywhere...
 
-    const post= context.params?.post ?? 'not-found'
-    const res = await fetch(`https://raw.githubusercontent.com/adalundhe/lundhe-dev/main/${post}.md`)
+    const post= knownPaths.includes(context.params?.post as string ?? '') ? context.params?.post : 'not-found'
+    const res = await fetch(`https://raw.githubusercontent.com/adalundhe/lundhe-dev/main/src/posts/${post}.mdx`)
+    
     const mdxText = await res.text()
     const mdxSource = await serialize(mdxText)
     return { props: { mdx: mdxSource } }
@@ -24,9 +27,7 @@ export const getStaticProps = (async (context) => {
 
 export async function getStaticPaths() {
     return {
-      paths: [
-        '/blog/test'
-      ],
+      paths: knownPaths,
       fallback: true
     }
   }
