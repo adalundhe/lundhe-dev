@@ -40,7 +40,7 @@ export const useScrollSettings = create<ScrollSettings>((set, get) => ({
 
             setTimeout(() => set({
                 scrollDirection: 'stable',
-            }), 3000)
+            }), 1000)
 
         } else if (nextPostition < lastPosition && absDistance > 100){
             set({
@@ -50,7 +50,7 @@ export const useScrollSettings = create<ScrollSettings>((set, get) => ({
 
             setTimeout(() => set({
                 scrollDirection: 'stable',
-            }), 3000)
+            }), 1000)
 
         }
 

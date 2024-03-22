@@ -120,7 +120,7 @@ export const AboutTerminal = () => {
         if (inView){
 
             writeToConsole({
-                messages: ["Hi there!"],
+                messages: ["Hello!"],
                 commandOutputs: [""],
                 idx: 0,
                 sliceEnd: sliceEnd.current,

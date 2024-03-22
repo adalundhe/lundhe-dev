@@ -45,6 +45,17 @@ const marckScript = localFont({
 })
 
 
+const zenTokyoZoo = localFont({
+  src: [
+    {
+      path: '../../public/fonts/cookie/Cookie-Regular.ttf',
+      weight: '700'
+    },
+  ],
+  display: "swap",
+  variable: '--font-cookie'
+})
+
 const MyApp: AppType = ({ Component, pageProps, router }) => {
 
   const onExitComplete = useCallback(() => {
@@ -68,12 +79,12 @@ const MyApp: AppType = ({ Component, pageProps, router }) => {
   }))
 
   return (
-   <main className={`${trirongFont.variable} ${marckScript.variable} w-screen h-screen ${mode === 'light' ? 'bg-[#eeeeee]' : 'bg-[#212121]'}`}>
+   <main className={`overflow-hidden ${zenTokyoZoo.variable} ${trirongFont.variable} ${marckScript.variable} w-screen h-screen ${mode === 'light' ? 'bg-[#eeeeee]' : 'bg-[#212121]'}`}>
 
       <Header/>
       <div className="w-full grid grid-rows-16 h-full">
         <NavBar/>
-        <div className={`${ scrollDir === 'stable' ? 'row-span-12' : 'row-span-14' } w-full font-serif`}>
+        <div className={`${ scrollDir === 'stable' ? '' : 'row-span-14' } w-full font-serif`}>
           <AnimatePresence
             onExitComplete={onExitComplete}
             mode="wait" 

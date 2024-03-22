@@ -1,10 +1,10 @@
 
 import { useCallback } from "react";
 import React, { forwardRef } from 'react'
-import Link from "next/link";
 import {
     Transition,
-    ScrollContainer
+    ScrollContainer,
+    HighlightedHeader
   } from '~/components'
 import { useSiteSettings } from "~/utils/store";
 
@@ -15,22 +15,17 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
 
     const {
         mode
-      } = useSiteSettings(
+    } = useSiteSettings(
         useCallback((state) => ({
             mode: state.visibilityMode
         }), [])
-      )
-
+    )
 
     return (
         <Transition ref={ref}>
             <ScrollContainer>
                 <>
-                    <div 
-                            className={`flex justify-center text-[5vmin] font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}
-                        >
-                            Hi there!
-                        </div>
+                        <HighlightedHeader  text="Hi there!"/>
                         <div className="my-2 w-full"></div>
                         <div className="flex justify-center">
                             <div className={`w-3/4 text-[3vmin] w-3/4 text-[3vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
@@ -72,7 +67,7 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
                             </div>
                         </div>
                         <div className="my-6 w-full"></div>
-                        <div className={`pb-12 font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'} flex justify-center items-center text-[5vmin]`}>
+                        <div className={`pb-6 md:pb-10 pt-2 font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'} flex justify-center items-center text-[5vmin]`}>
                             Let&apos;s build together!
                         </div>
                 </>

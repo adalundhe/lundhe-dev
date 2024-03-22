@@ -25,7 +25,7 @@ export const ScrollContainer = ({
 
         if (scrollDir === 'stable'){
             animate(scope.current, {
-                height: '79.9vh',
+                height: '79.85vh',
             }, {
                 duration: 0.25,
             })

@@ -10,6 +10,9 @@ export default {
         ],
         sans: [
           "var(--font-marck-script)"
+        ],
+        mono: [
+          "var(--font-cookie)"
         ]
       },
     },

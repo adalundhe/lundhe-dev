@@ -1,6 +1,8 @@
+export { BlogSummaryList } from './blog'
 export { Footer } from './footer'
 export { Header } from './header'
 export { NavBar } from './navbar'
+export { HighlightedHeader } from './text'
 export { ScrollContainer } from './scroll'
 export { SocialsNav } from './socials'
 export { Transition } from './transition'

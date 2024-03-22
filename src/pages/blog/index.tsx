@@ -3,7 +3,8 @@ import { useCallback } from "react";
 import React, { forwardRef } from 'react'
 import {
     Transition,
-    ScrollContainer
+    ScrollContainer,
+    BlogSummaryList
   } from '~/components'
 import { useSiteSettings } from "~/utils/store";
 
@@ -23,8 +24,7 @@ const Blog = (_: BlogPageProps, ref: BlogPageRef) => {
     return (
         <Transition ref={ref}>
             <ScrollContainer>
-                <div className="">
-                </div>
+                <BlogSummaryList/>
             </ScrollContainer>
         </Transition>
     )
