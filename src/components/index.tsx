@@ -1,4 +1,4 @@
-export { BlogSummaryList } from './blog'
+export { BlogSummaryList, BlogPostContainer } from './blog'
 export { Footer } from './footer'
 export { Header } from './header'
 export { NavBar } from './navbar'

@@ -1,4 +1,3 @@
-
 import { useScrollSettings } from "~/utils/store";
 import { useAnimate } from "framer-motion";
 import { ReactElement, useEffect } from "react";

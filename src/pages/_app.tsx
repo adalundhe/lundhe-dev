@@ -74,9 +74,9 @@ const MyApp: AppType = ({ Component, pageProps, router }) => {
 
   const {
       scrollDir
-  } = useScrollSettings((state) => ({
+  } = useScrollSettings(useCallback((state) => ({
       scrollDir: state.scrollDirection
-  }))
+  }), []))
 
   return (
    <main className={`overflow-hidden ${zenTokyoZoo.variable} ${trirongFont.variable} ${marckScript.variable} w-screen h-screen ${mode === 'light' ? 'bg-[#eeeeee]' : 'bg-[#212121]'}`}>

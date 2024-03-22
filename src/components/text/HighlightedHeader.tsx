@@ -1,5 +1,3 @@
-// © Framer University. All rights reserved.
-
 import React, { LegacyRef, useCallback, useEffect, useRef } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { useSiteSettings } from "~/utils/store"

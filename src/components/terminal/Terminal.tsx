@@ -1,4 +1,3 @@
-
 import { useState, useRef, useCallback } from 'react';
 import Terminal, { ColorMode, TerminalOutput } from '@shapes-org/react-terminal-ui';
 import { useEffect } from 'react';
