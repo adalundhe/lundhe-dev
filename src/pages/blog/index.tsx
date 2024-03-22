@@ -2,8 +2,7 @@ import React, { forwardRef } from 'react'
 import {
   Transition,
   ScrollContainer,
-  BlogSummaryList,
-  BlogSummary
+  BlogSummaryList
 } from '~/components'
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
 
@@ -13,6 +12,7 @@ type BlogSummaryData = {
   summary: string;
   title: string;
   tags: Array<string>
+  slug: string
 }
 
 export const getStaticProps = (async (context) => {
@@ -20,14 +20,11 @@ export const getStaticProps = (async (context) => {
 
   const res = await fetch(`https://raw.githubusercontent.com/adalundhe/lundhe-dev/main/src/posts/index.json`)
   
-  const summary: Array<BlogSummaryData> = await res.json()
-  return { props: { summaries: summary.map(summary => ({
-    ...summary,
-    date: new Date(summary.date)
-  })) } }
+  const summaries: Array<BlogSummaryData> = await res.json()
+  return { props: { summaries } }
 
 }) satisfies GetStaticProps<{
-  summaries: Array<BlogSummary>
+  summaries: Array<BlogSummaryData>
 }>
 
 type BlogPageRef = React.ForwardedRef<HTMLDivElement>
@@ -39,7 +36,12 @@ const Blog = ({
     return (
         <Transition ref={ref}>
             <ScrollContainer>
-                <BlogSummaryList summaries={summaries} />
+                <BlogSummaryList summaries={
+                   summaries.map(summary => ({
+                    ...summary,
+                    date: new Date(summary.date)
+                  }))
+                } />
             </ScrollContainer>
         </Transition>
     )

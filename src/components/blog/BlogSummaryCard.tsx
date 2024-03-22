@@ -2,12 +2,14 @@ import { useCallback } from "react";
 import { useSiteSettings } from "~/utils/store";
 import { useAnimate } from "framer-motion"
 import { BlogSummaryTag } from "./BlogSummaryTag";
+import Link from "next/link";
 
 export type BlogSummary = {
     date: Date;
     summary: string;
     title: string;
     tags: Array<string>
+    slug: string
 }
 
 
@@ -16,7 +18,8 @@ export const BlogSummaryCard = ({
     summary,
     title,
     tags,
-    postIdx
+    postIdx,
+    slug
 }: BlogSummary & {postIdx: number}) => {
 
     const [scope, animate] = useAnimate()
@@ -51,7 +54,7 @@ export const BlogSummaryCard = ({
                         animateTitle(
                             titleScope.current,
                             {
-                                color: mode === 'light' ? '#212121' : '#E5E5E5'
+                                color: mode === 'light' ? '#111111' : '#E5E5E5'
                             },
                             {
                                 duration: 0.1
@@ -62,7 +65,7 @@ export const BlogSummaryCard = ({
                         animateTitle(
                             titleScope.current,
                             {
-                                color: mode === 'light' ? '#525252' : '#BDBDBD'
+                                color: mode === 'light' ? '#424242' : '#BDBDBD'
                             },
                             {
                                 duration: 0.1
@@ -70,13 +73,15 @@ export const BlogSummaryCard = ({
                         )
                     }}
                     ref={titleScope}
-                    className={`${ mode === 'light' ? 'text-[#525252]' : 'text-[#BDBDBD]'} w-fit cursor-pointer text-[5.75vmin] font-mono`}
-                >{
-                    title
-                }</h1>
+                    className={`${ mode === 'light' ? 'text-[#424242]' : 'text-[#BDBDBD]'} w-fit cursor-pointer text-[5.75vmin] font-mono`}
+                >
+                    <Link href={`/blog/${slug}`}>{
+                        title
+                    }</Link>
+                </h1>
                 <h2 className={`font-sans text-[2.1vmin] my-2 ${mode === 'light' ? 'text-[#52525B]' : 'text-[#82828B]'}`}>{date.toDateString()}</h2>
             </div>
-            <p className={`${mode === 'light' ? 'text-[#737373]' : 'text-[#BDBDBD] shadow-[#374151] bg-[#27272A]'} text-wrap text-[3vmin]`}>
+            <p className={`${mode === 'light' ? 'text-[#535353]' : 'text-[#BDBDBD] shadow-[#374151] bg-[#27272A]'} text-wrap text-[3vmin]`}>
                 {summary}
             </p>
             <div className="flex flex-wrap w-full my-2 text-[2vmin] w-1/2 font-sans">
