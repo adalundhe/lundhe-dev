@@ -18,7 +18,7 @@ export const NavBar = () => {
 
     return (
     <nav className={`px-4 row-span-2 py-4 w-[75%] h-fit grid grid-cols-8 gap-4 w-full ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}> 
-        <div className="font-sans text-[6vmin] flex items-center-justify-center col-span-3">
+        <div className="font-sans text-[5.7vmin] flex items-center-justify-center col-span-3">
             <NavBarItem 
                 link={''} 
                 title={'Ada Lündhé'}

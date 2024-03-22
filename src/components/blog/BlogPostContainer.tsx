@@ -4,8 +4,8 @@ export const BlogPostContainer = ({
     mdx
 }: {
     mdx: MDXRemoteSerializeResult
-}) => <div className='flex justify-center'>
-    <div className='w-1/2'>
+}) => <div className='flex justify-center h-full'>
+    <div className='w-1/2 h-full'>
        {
         mdx && <MDXRemote  {...mdx}/>
        }
