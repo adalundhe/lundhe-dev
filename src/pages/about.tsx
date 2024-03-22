@@ -65,16 +65,7 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
                                 <br/> 
                                 <div>
                                     My DevOps and infrastructure experience includes the development, orchestratation, and maintenance of infrastructure for large organizations 
-                                    (including the 
-                                    <Link 
-                                        href={"https://ai.meta.com/research/"}
-                                        rel="noopener noreferrer" 
-                                        target="_blank"
-                                    >
-                                        FAIR
-                                    </Link> 
-                                
-                                and Oculus teams at Meta), including complex Spark deployments, SLURM clusters, and other sophisticated machine learning/AI pipelines and 
+                                    (including the FAIR and Oculus teams at Meta), including complex Spark deployments, SLURM clusters, and other sophisticated machine learning/AI pipelines and 
                                 infrastructure. I&apos;ve also worked on the infrastructure behind serving users the Epic Games Unreal Engine, cloud gaming environments 
                                 using Unreal Engine, and Solr/Lucene enterprise search.
                                 </div>
