@@ -106,7 +106,7 @@ const MyApp: AppType = ({ Component, pageProps, router }) => {
       <Head>
         <title>Ada Lündhé</title>
       </Head>
-      <div className="w-full grid grid-rows-16 h-full">
+      <div className="w-full flex flex-col h-full">
         <NavBar/>
         <div 
           ref={scope}
