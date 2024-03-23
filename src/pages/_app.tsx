@@ -115,7 +115,7 @@ const MyApp: AppType = ({ Component, pageProps, router }) => {
                 scope.current.scrollTop + scope.current.clientHeight
             ) 
           }}
-          className={`overflow-y-scroll ${ scrollDir === 'stable' ? 'row-span-12' : 'row-span-14' } w-full font-serif`}
+          className="overflow-y-scroll w-full font-serif"
           >
           <AnimatePresence
             onExitComplete={onExitComplete}
