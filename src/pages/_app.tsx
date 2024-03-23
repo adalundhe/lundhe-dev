@@ -85,7 +85,7 @@ const MyApp: AppType = ({ Component, pageProps, router }) => {
       </Head>
       <div className="w-full grid grid-rows-16 h-full">
         <NavBar/>
-        <div className={`${ scrollDir === 'stable' ? '' : 'row-span-14' } w-full font-serif`}>
+        <div className={`${ scrollDir === 'stable' ? 'row-span-12' : 'row-span-14' } w-full font-serif`}>
           <AnimatePresence
             onExitComplete={onExitComplete}
             mode="wait" 

@@ -48,7 +48,7 @@ export const Footer = () => {
     return (
         <footer 
             className={
-                `row-span-2 w-full font-sans text-[2.5vmin] flex`
+                `row-span-2 w-full font-sans text-[2.75vmin] flex`
             }
             ref={scope}
         >

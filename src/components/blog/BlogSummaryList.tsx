@@ -8,7 +8,7 @@ export const BlogSummaryList = ({
 }) => {
 
     return (
-        <div className="pb-6 md:pb-10">
+        <div className="pb-6 md:pb-10 h-[81vh]">
             {
                 summaries.map((summary, idx) => 
                     <div key={`blog-post-${idx}`} className="flex justify-center w-full">

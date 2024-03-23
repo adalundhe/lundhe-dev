@@ -24,7 +24,7 @@ export const ScrollContainer = ({
 
         if (scrollDir === 'stable'){
             animate(scope.current, {
-                height: '79.85vh',
+                height: '81vh',
             }, {
                 duration: 0.25,
             })
@@ -40,7 +40,7 @@ export const ScrollContainer = ({
     }, [scrollDir, animate, scope])
 
     return (
-        <div className="row-span-full overflow-hidden w-full">
+        <div className="row-span-full overflow-hidden w-full h-full">
             <div 
                 className="overflow-y-scroll"
                 onScroll={() => {

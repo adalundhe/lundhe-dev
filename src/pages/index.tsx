@@ -23,15 +23,18 @@ const Home = (_: IndexPageProps, ref: IndexPageRef) => {
 
   return (
     <Transition ref={ref}>
-      <div className={`px-8 row-span-6 ${mode === 'light' ? 'text-[#212121]' : 'text-[#eeeeee]'} w-full grid grid-cols-12`}>
-        <AboutTerminal />
-      </div>
-      <div className='px-8 text-[4vmin] row-span-4 text-center flex justify-center items-center'>
-        <div className={`text-[5vmin] w-full font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#eeeeee]'}`}>
-          <p>Let&apos;s build together!</p>
+      <div className='row-span-16 grid grid-rows-16 h-[81vh]'>
+        <div className={`px-8 row-span-6 ${mode === 'light' ? 'text-[#212121]' : 'text-[#eeeeee]'} w-full grid grid-cols-12`}>
+          <AboutTerminal />
         </div>
+        <div className='px-8 text-[4vmin] row-span-4 text-center flex justify-center items-center'>
+          <div className={`text-[5vmin] w-full font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#eeeeee]'}`}>
+            <p>Let&apos;s build together!</p>
+          </div>
+        </div>
+        <SocialsNav/>
+
       </div>
-      <SocialsNav/>
     </Transition>
   );
 }
