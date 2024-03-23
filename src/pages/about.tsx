@@ -26,8 +26,7 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
             <ScrollContainer>
                 <>
                         <HighlightedHeader  text="Hi there!"/>
-                        <div className="my-2 w-full"></div>
-                        <div className="flex justify-center">
+                        <div className="my-2 w-full flex justify-center">
                             <div className={`w-3/4 text-[3vmin] w-3/4 text-[3vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
                                 <p className={`font-sans text-[4.5vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
                                         Who are you?
@@ -45,8 +44,7 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
                                 </p> 
                             </div> 
                         </div>
-                        <div className="my-8 w-full"></div>
-                        <div className="flex justify-center">
+                        <div className="my-2 w-full flex justify-center">
                             <div className={`w-3/4 text-[3vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
                                 <p className={`font-sans text-[4.5vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
                                     How do you do it?
@@ -66,10 +64,10 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="my-6 w-full"></div>
-                        <div className={`pb-6 md:pb-10 pt-2 font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'} flex justify-center items-center text-[5vmin]`}>
+                        <div className={`my-2 py-4 font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'} flex justify-center items-center text-[5vmin]`}>
                             Let&apos;s build together!
                         </div>
+                        <div className={` ${mode === 'light' ? 'text-[#eeeeee]' : 'text-[#212121]'} text-[6vmin] pb-24`}>||||</div>
                 </>
             </ScrollContainer>
         </Transition>

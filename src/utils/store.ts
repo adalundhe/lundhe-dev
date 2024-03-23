@@ -32,7 +32,7 @@ export const useScrollSettings = create<ScrollSettings>((set, get) => ({
         const { lastPosition } = get();
         const absDistance = Math.abs(nextPostition - lastPosition);
 
-        if (nextPostition > lastPosition && absDistance > 100){
+        if (nextPostition > lastPosition && absDistance > 75){
             set({
                 scrollDirection: 'down',
                 lastPosition: nextPostition
@@ -42,7 +42,7 @@ export const useScrollSettings = create<ScrollSettings>((set, get) => ({
                 scrollDirection: 'stable',
             }), 1000)
 
-        } else if (nextPostition < lastPosition && absDistance > 100){
+        } else if (nextPostition < lastPosition && absDistance > 75){
             set({
                 scrollDirection: 'up',
                 lastPosition: nextPostition

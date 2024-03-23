@@ -4,8 +4,8 @@ import { type AppType } from "next/app";
 import localFont from 'next/font/local'
 
 import { api } from "~/utils/api";
-import { useCallback } from "react";
-import { AnimatePresence } from 'framer-motion'
+import { useCallback, useEffect } from "react";
+import { AnimatePresence, useAnimate } from 'framer-motion'
 import {
   Footer,
   NavBar,
@@ -73,10 +73,33 @@ const MyApp: AppType = ({ Component, pageProps, router }) => {
   )
 
   const {
-      scrollDir
+      scrollDir,
+      setDirection
   } = useScrollSettings(useCallback((state) => ({
-      scrollDir: state.scrollDirection
+      scrollDir: state.scrollDirection,
+      setDirection: state.setScrollDirection
   }), []))
+
+  const [scope, animate] = useAnimate()
+
+  useEffect(() => {
+
+      if (scrollDir === 'stable'){
+          animate(scope.current, {
+              height: '100%',
+          }, {
+              duration: 0.25,
+          })
+
+      } else {
+          animate(scope.current, {
+              height: '100vh',
+          }, {
+              duration: 0.25
+          })
+      }
+
+  }, [scrollDir, animate, scope])
 
   return (
    <main className={`overflow-hidden ${zenTokyoZoo.variable} ${trirongFont.variable} ${marckScript.variable} w-screen h-screen ${mode === 'light' ? 'bg-[#eeeeee]' : 'bg-[#212121]'}`}>
@@ -85,7 +108,15 @@ const MyApp: AppType = ({ Component, pageProps, router }) => {
       </Head>
       <div className="w-full grid grid-rows-16 h-full">
         <NavBar/>
-        <div className={`${ scrollDir === 'stable' ? 'row-span-12' : 'row-span-14' } w-full font-serif`}>
+        <div 
+          ref={scope}
+          onScroll={() => {
+            scope.current && setDirection(
+                scope.current.scrollTop + scope.current.clientHeight
+            ) 
+          }}
+          className={`overflow-y-scroll ${ scrollDir === 'stable' ? 'row-span-12' : 'row-span-14' } w-full font-serif`}
+          >
           <AnimatePresence
             onExitComplete={onExitComplete}
             mode="wait" 
