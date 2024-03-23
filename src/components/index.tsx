@@ -1,4 +1,4 @@
-export { DragDots } from './graphs'
+export { DragDots, Cubes } from './decorations'
 export { BlogSummaryList, BlogPostContainer, type BlogSummary } from './blog'
 export { Footer } from './footer'
 export { NavBar } from './navbar'

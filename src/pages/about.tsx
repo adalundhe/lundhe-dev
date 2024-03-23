@@ -4,7 +4,8 @@ import React, { forwardRef } from 'react'
 import {
     Transition,
     ScrollContainer,
-    HighlightedHeader
+    HighlightedHeader,
+    Cubes
   } from '~/components'
 import { useSiteSettings } from "~/utils/store";
 
@@ -25,6 +26,7 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
         <Transition ref={ref}>
             <ScrollContainer>
                 <>
+                    <Cubes/>
                     <HighlightedHeader  text="Hi there!"/>
                     <div className="my-2 w-full flex justify-center">
                         <div className={`w-3/4 text-[3vmin] w-3/4 text-[3vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>

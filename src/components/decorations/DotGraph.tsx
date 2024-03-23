@@ -15,13 +15,13 @@ const generateCircles = ({ width, height }: { width: number; height: number }) =
   return new Array(
     Math.round(
         Math.sqrt(Math.abs(width - height))
-       ) * 3
+       ) * 4
   ).fill(1).map((_, i) => {
     const radius = 25 - radiusRandom() * 20;
     return {
       id: `${i}`,
-      radius,
-      x: Math.round(xRandom() * (width - radius * 2) + radius),
+      radius: radius * 0.5,
+      x: Math.round(xRandom() * (width - radius * 2) + radius) ,
       y: Math.round(yRandom() * (height - radius * 2) + radius),
     };
   });
@@ -90,8 +90,9 @@ export const DragDots = () => {
     >
         <motion.svg 
             layout
-            viewBox={
-                `0 0 ${sizeRef.current?.clientWidth ?? 100} ${sizeRef.current?.clientHeight ?? 100}`}  className='m-1'
+            width="100%" 
+            height="100%"  
+            className='m-1'
         >
         {draggingItems.map((d, i) => {
             return (
