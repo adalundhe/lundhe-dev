@@ -1,57 +1,11 @@
 import { motion } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
 import { CubeFace } from './CubeFace'
 
-
-type Circle = {
-    x: number,
-    y: number
-    radius: number
-}
-
-const calculatePostition = ({
-    height,
-    width
-}: {
-    height: number,
-    width: number
-}): Circle => ({
-    x: width/2,
-    y: height/4,
-    radius: height/2.5
-})
-
-
 export const Cubes = () => {
-
-    const sizeRef = useRef<SVGSVGElement>(null)
-    const [circle, setCircle] = useState<Circle>({
-        x: 0,
-        y: 0,
-        radius: 0
-    });
-
-    useEffect(() => {
-        // runAnimation()
-        setCircle(calculatePostition({ 
-            width: (sizeRef.current?.clientWidth ?? 100), 
-            height: (sizeRef.current?.clientHeight ?? 100)
-        }))
-    
-        window.addEventListener(
-            'resize',
-            () => setCircle(calculatePostition({ 
-                width: (sizeRef.current?.clientWidth ?? 100), 
-                height: (sizeRef.current?.clientHeight ?? 100)
-            }))
-        )
-    
-      }, [sizeRef]);
 
     return (
         <div className="w-full h-[25vw] flex items-center justify-center">
             <motion.svg
-                ref={sizeRef}
                 className="flex items-center justify-center"
                 width="100%"
                 height="100%"
@@ -112,15 +66,15 @@ export const Cubes = () => {
                     </pattern>
                 </defs>
                 <motion.circle
-                    cx={circle.x}
-                    cy={circle.y}
-                    r={circle.radius}
-                    animate={{ y: 20 }}
+                    cx={'50%'}
+                    cy={'35%'}
+                    r={'15%'}
+                    animate={{ y: '15%' }}
                     transition={{ 
                         type: "spring", 
                         bounce: 1,
                         stiffness: 750,
-                        mass: 2
+                        mass: 3
                     }}
                     className="focus:outline-none"
                     fillOpacity={0.75}
