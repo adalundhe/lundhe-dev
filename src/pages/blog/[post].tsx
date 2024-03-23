@@ -35,11 +35,11 @@ export const getStaticProps = (async (context) => {
             remarkPlugins: [[remarkGfm]],
 
             rehypePlugins: [
+                rehypeCodeTitles,
                 [
                     rehypePrism as any,
                     { ignoreMissing: true }
-                ],
-                rehypeCodeTitles
+                ]
             ]
         }
     })
