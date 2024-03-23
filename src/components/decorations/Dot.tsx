@@ -44,7 +44,7 @@ export const Dot = ({
                 transition: { duration: 0.5 },
             }}
 
-            className="focus:outline-none"
+            className="focus:outline-none cursor-pointer"
             key={`dot-${id}`}
             cx={x}
             cy={y}
