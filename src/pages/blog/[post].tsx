@@ -10,6 +10,8 @@ import {
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
 import rehypeHighlight from "rehype-highlight"
 import langPython from 'highlight.js/lib/languages/python'
+import remarkGfm from 'remark-gfm';
+import rehypePrism from 'rehype-prism-plus';
 
 
 
@@ -30,10 +32,18 @@ export const getStaticProps = (async (context) => {
     const mdxText = await res.text()
     const mdxSource = await serialize(mdxText, {
         mdxOptions: {
+
+            remarkPlugins: [[remarkGfm]],
+
             rehypePlugins: [
+                // [
+                //     rehypeHighlight as any,
+                //     { languages: { python: langPython } }
+                // ],
+
                 [
-                    rehypeHighlight as any,
-                    { languages: { python: langPython } }
+                    rehypePrism as any,
+                    { ignoreMissing: true }
                 ]
             ]
         }
