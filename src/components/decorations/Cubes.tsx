@@ -14,6 +14,7 @@ export const Cubes = () => {
                     <g id="cube"
                     >
                         <CubeFace
+                            key={'face-l'}
                             colors={[
                                 '#E91E63',
                                 '#4FC3F7',
@@ -29,6 +30,7 @@ export const Cubes = () => {
                             duration={2}
                         />
                         <CubeFace
+                            key={'face-r'}
                             colors={[
                                 '#4FC3F7',
                                 '#F3E5F5',
@@ -44,6 +46,7 @@ export const Cubes = () => {
                             duration={3}
                         />
                         <CubeFace
+                            key={'face-t'}
                             colors={[
                                 '#F3E5F5',
                                 '#E91E63',

@@ -15,12 +15,12 @@ export const CubeFace = ({
     delay: number
 }) => {
 
-
     return (
         <>
         {
             colors.map((color, idx) => 
             <motion.path 
+                key={`face-${idx}`}
                 animate={{opacity: steps[idx]}}
                 transition={{
                     delay: delay,
