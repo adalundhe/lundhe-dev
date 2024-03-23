@@ -1,4 +1,4 @@
-
+import "~/styles/highlight-js/github-dark.css"
 import "~/styles/globals.css";
 import { type AppType } from "next/app";
 import localFont from 'next/font/local'
@@ -7,11 +7,11 @@ import { api } from "~/utils/api";
 import { useCallback } from "react";
 import { AnimatePresence } from 'framer-motion'
 import {
-  Header,
   Footer,
   NavBar,
 } from '~/components'
 import { useScrollSettings, useSiteSettings } from "~/utils/store";
+import Head from "next/head";
 
 
 const trirongFont = localFont({
@@ -80,8 +80,9 @@ const MyApp: AppType = ({ Component, pageProps, router }) => {
 
   return (
    <main className={`overflow-hidden ${zenTokyoZoo.variable} ${trirongFont.variable} ${marckScript.variable} w-screen h-screen ${mode === 'light' ? 'bg-[#eeeeee]' : 'bg-[#212121]'}`}>
-
-      <Header/>
+      <Head>
+        <title>Ada Lündhé</title>
+      </Head>
       <div className="w-full grid grid-rows-16 h-full">
         <NavBar/>
         <div className={`${ scrollDir === 'stable' ? '' : 'row-span-14' } w-full font-serif`}>

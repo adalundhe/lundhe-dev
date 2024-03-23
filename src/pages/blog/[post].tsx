@@ -1,3 +1,4 @@
+
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import {
@@ -7,18 +8,36 @@ import {
   } from '~/components'
   import React, { forwardRef } from 'react'
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
+import rehypeHighlight from "rehype-highlight"
+import langPython from 'highlight.js/lib/languages/python'
 
 
-const knownPaths = ['/blog/not-found']
+
+const knownPaths = [
+    '/blog/not-found',
+    '/blog/test-post'
+]
 
 export const getStaticProps = (async (context) => {
     // MDX text - can be from a local file, database, CMS, fetch, anywhere...
 
-    const post= knownPaths.includes(context.params?.post as string ?? '') ? context.params?.post : 'not-found'
+    const postSlug = context.params?.post as string ?? ''
+    const post = knownPaths.includes(
+        `/blog/${postSlug}`
+    ) ? context.params?.post : 'not-found'
     const res = await fetch(`https://raw.githubusercontent.com/adalundhe/lundhe-dev/main/src/posts/${post}.mdx`)
     
     const mdxText = await res.text()
-    const mdxSource = await serialize(mdxText)
+    const mdxSource = await serialize(mdxText, {
+        mdxOptions: {
+            rehypePlugins: [
+                [
+                    rehypeHighlight as any,
+                    { languages: { python: langPython } }
+                ]
+            ]
+        }
+    })
     return { props: { mdx: mdxSource } }
 
 }) satisfies GetStaticProps<{

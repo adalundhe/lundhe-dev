@@ -1,3 +1,4 @@
+
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 export const BlogPostContainer = ({
@@ -5,7 +6,7 @@ export const BlogPostContainer = ({
 }: {
     mdx: MDXRemoteSerializeResult
 }) => <div className='flex justify-center h-full'>
-    <div className='w-1/2 h-full'>
+    <div className='w-4/5 h-full [&>*]:font-serif'>
        {
         mdx && <MDXRemote  {...mdx}/>
        }

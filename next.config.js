@@ -3,7 +3,10 @@
  * for Docker builds.
  */
 await import("./src/env.js");
-import withMdx from '@next/mdx'
+import createMDX from '@next/mdx'
+import rehypeHighlight from 'rehype-highlight'
+
+import langPython from 'highlight.js/lib/languages/python'
 
 /** @type {import("next").NextConfig} */
 const config = {
@@ -21,4 +24,13 @@ const config = {
   },
 };
 
-export default withMdx()(config);
+export default createMDX({
+  options: {
+    rehypePlugins: [
+      [
+        rehypeHighlight,
+        { languages: { python: langPython } }
+      ]
+    ]
+  }
+})(config);
