@@ -84,7 +84,7 @@ export const Cubes = () => {
                         type: "spring", 
                         bounce: 2,
                         stiffness: 750,
-                        mass: 3
+                        mass: 4
                     }}
                     variants={{
                         animate: {
