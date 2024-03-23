@@ -18,8 +18,6 @@ export const HighlightedHeader = ({
                     setTimeout(resolve, 0.1 * 1000)
                 ) // delay before animation starts
                 controls.start("visible")
-            } else if (!entry?.isIntersecting) {
-
             }
         })
 

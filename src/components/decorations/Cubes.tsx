@@ -1,7 +1,13 @@
-import { motion } from 'framer-motion'
+import { motion, useAnimation } from 'framer-motion'
 import { CubeFace } from './CubeFace'
+import { useEffect } from 'react'
 
 export const Cubes = () => {
+
+    const controls = useAnimation()
+    useEffect(() => {
+        controls.start("animate")
+    }, [controls])
 
     return (
         <div className="w-full h-[25vw] flex items-center justify-center">
@@ -16,9 +22,9 @@ export const Cubes = () => {
                         <CubeFace
                             key={'face-l'}
                             colors={[
-                                '#E91E63',
-                                '#4FC3F7',
-                                '#F3E5F5'
+                                'fill-[#E91E63]',
+                                'fill-[#4FC3F7]',
+                                'fill-[#F3E5F5]'
                             ]}
                             steps={[
                                 [1, 0, 0, 1],
@@ -32,9 +38,9 @@ export const Cubes = () => {
                         <CubeFace
                             key={'face-r'}
                             colors={[
-                                '#4FC3F7',
-                                '#F3E5F5',
-                                '#E91E63'
+                                'fill-[#4FC3F7]',
+                                'fill-[#F3E5F5]',
+                                'fill-[#E91E63]'
                             ]}
                             steps={[
                                 [1, 0, 0, 1],
@@ -48,9 +54,9 @@ export const Cubes = () => {
                         <CubeFace
                             key={'face-t'}
                             colors={[
-                                '#F3E5F5',
-                                '#E91E63',
-                                '#4FC3F7',
+                                'fill-[#F3E5F5]',
+                                'fill-[#E91E63]',
+                                'fill-[#4FC3F7]',
                             ]}
                             steps={[
                                 [1, 0, 0, 1],
@@ -70,14 +76,20 @@ export const Cubes = () => {
                 </defs>
                 <motion.circle
                     cx={'50%'}
-                    cy={'35%'}
-                    r={'15%'}
-                    animate={{ y: '15%' }}
+                    cy={'34%'}
+                    r={'13.5%'}
+                    initial={{y: '0%'}}
+                    animate={controls}
                     transition={{ 
                         type: "spring", 
-                        bounce: 1,
+                        bounce: 2,
                         stiffness: 750,
                         mass: 3
+                    }}
+                    variants={{
+                        animate: {
+                            y: '12%'
+                        }
                     }}
                     className="focus:outline-none"
                     fillOpacity={0.75}
@@ -87,7 +99,6 @@ export const Cubes = () => {
                     fill="url(#pattern-cubes)"
                 />
             </motion.svg>
-
         </div>
     )
 }

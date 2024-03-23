@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { motion, useAnimation } from 'framer-motion'
+import { useEffect } from 'react'
 
 
 export const CubeFace = ({
@@ -15,19 +16,29 @@ export const CubeFace = ({
     delay: number
 }) => {
 
+    const controls = useAnimation()
+    useEffect(() => {
+        controls.start("animate")
+    }, [controls])
+
     return (
         <>
         {
             colors.map((color, idx) => 
             <motion.path 
                 key={`face-${idx}`}
-                animate={{opacity: steps[idx]}}
+                animate={controls}
                 transition={{
                     delay: delay,
                     duration: duration,
                     repeat: Infinity
                 }}
-                className={`fill-[${color}]`} d={drawLine} 
+                variants={{
+                    animate: {
+                        opacity: steps[idx]
+                    }
+                }}
+                className={color} d={drawLine} 
             />
             )
         }
