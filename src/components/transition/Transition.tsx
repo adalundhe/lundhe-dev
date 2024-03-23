@@ -16,7 +16,7 @@ const PageTransition = ({ children, ...rest }: PageTransitionProps, ref: PageTra
             exit={{ opacity: 0 }}
 			transition={transition}
 			{...rest}
-            className='h-full grid grid-rows-16'
+            className='flex flex-col'
 		>
 			{children}
 		</motion.div>

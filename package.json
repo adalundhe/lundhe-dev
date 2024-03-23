@@ -22,6 +22,7 @@
     "@trpc/server": "next",
     "@types/mapbox__rehype-prism": "^0.8.3",
     "@types/mdx": "^2.0.12",
+    "@visx/visx": "^3.10.2",
     "framer-motion": "^11.0.20",
     "next": "^14.1.3",
     "next-mdx-remote": "^4.4.1",

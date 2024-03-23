@@ -40,7 +40,11 @@ const Blog = ({
                    summaries.map(summary => ({
                     ...summary,
                     date: new Date(summary.date)
-                  }))
+                  })).sort(function(a,b){
+                    // Turn your strings into dates, and then subtract them
+                    // to get a value that is either negative, positive, or zero.
+                    return b.date.getTime() - a.date.getTime();
+                  })
                 } />
             </ScrollContainer>
         </Transition>
