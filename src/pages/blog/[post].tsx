@@ -8,8 +8,7 @@ import {
   } from '~/components'
   import React, { forwardRef } from 'react'
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
-import rehypeHighlight from "rehype-highlight"
-import langPython from 'highlight.js/lib/languages/python'
+import rehypeCodeTitles from 'rehype-code-titles'
 import remarkGfm from 'remark-gfm';
 import rehypePrism from 'rehype-prism-plus';
 
@@ -36,15 +35,11 @@ export const getStaticProps = (async (context) => {
             remarkPlugins: [[remarkGfm]],
 
             rehypePlugins: [
-                // [
-                //     rehypeHighlight as any,
-                //     { languages: { python: langPython } }
-                // ],
-
                 [
                     rehypePrism as any,
                     { ignoreMissing: true }
-                ]
+                ],
+                rehypeCodeTitles
             ]
         }
     })
