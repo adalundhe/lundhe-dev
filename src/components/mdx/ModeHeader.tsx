@@ -1,7 +1,10 @@
+// ${mode === 'light' ? 'text-[#212121]' : 'text-[#F5F5F5]'}
+
+
 import { ReactElement, useCallback } from "react"
 import { useSiteSettings } from "~/utils/store"
 
-export const ModeText = ({
+export const ModeHeader = ({
     children
 }: {
     children: ReactElement
@@ -16,7 +19,7 @@ export const ModeText = ({
     )
     
     return (
-        <div className={`font-serif text-[3vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
+        <div className={`font-sans text-[4.5vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#F5F5F5]'}`}>
             {children}
         </div>
     )
