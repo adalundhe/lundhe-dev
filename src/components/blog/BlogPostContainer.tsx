@@ -6,8 +6,8 @@ export const BlogPostContainer = ({
     mdx
 }: {
     mdx: MDXRemoteSerializeResult
-}) => <div className='flex justify-center pb-6'>
-    <div className='w-4/5 h-full [&>*]:font-serif'>
+}) => <div className='flex items-center justify-center pb-6 h-full'>
+    <div className='w-4/5 h-full'>
        {
         mdx && <MDXRemote  {...mdx} components={{
             'ModeText': ModeText,
