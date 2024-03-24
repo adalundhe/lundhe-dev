@@ -4,8 +4,7 @@ export {
     HighlightedHeader, 
     ColoredHighlightedHeader,
     DiagonalStripeFill,
-    DiagonalCubeFill,
-    ModeText
+    DiagonalCubeFill
 } from './decorations'
 export { BlogSummaryList, BlogPostContainer, type BlogSummary } from './blog'
 export { Footer } from './footer'
