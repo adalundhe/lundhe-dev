@@ -16,18 +16,24 @@ export const Footer = () => {
     const currentYear = new Date().getFullYear()
 
     const {
-        scrollDir
+        scrollDir,
+        lastPos
     } = useScrollSettings((state) => ({
         scrollDir: state.scrollDirection,
-        animationState: state.animationState
+        animationState: state.animationState,
+        lastPos: state.lastPosition
     }))
 
 
     const [scope, animate] = useAnimate()
+    
 
     useEffect(() => {
 
-        if (scrollDir === 'stable'){
+        if (
+            (scrollDir === 'stable' || scrollDir === 'up')
+            && lastPos < window.outerHeight
+        ){
             animate(scope.current, {
                 height: '60px'
             }, {
@@ -62,7 +68,11 @@ export const Footer = () => {
                         patternTransform="rotate(55)" 
                         patternUnits="userSpaceOnUse"
                     >
-                        <rect width="100%" height="100%" fill="#F3E5F5"></rect>
+                        <rect 
+                            width="100%" 
+                            height="100%" 
+                            fill="#F3E5F5"
+                        />
                         <line 
                             x1="5" 
                             x2="5" 

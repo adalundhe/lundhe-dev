@@ -1,4 +1,5 @@
 import { NavBarItem } from "./NavBarItem"
+import { ColoredNavbarLink } from './ColoredNavbarLink'
 import { VisibilityModeButton } from './VisibilityModeButton'
 import { useSiteSettings } from '~/utils/store'
 import { useCallback } from "react"
@@ -18,10 +19,16 @@ export const NavBar = () => {
 
     return (
         <nav className={`px-4 row-span-2 py-4 w-[75%] h-fit grid grid-cols-8 gap-4 w-full ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}> 
-            <div className="font-sans text-[5.7vmin] flex items-center-justify-center col-span-3">
-                <NavBarItem 
+            <div className="font-sans flex items-center-justify-center col-span-3">
+                {/* <NavBarItem 
                     link={''} 
                     title={'Ada Lündhé'}
+                /> */}
+                <ColoredNavbarLink 
+                    link={''} 
+                    title={'Ada Lündhé'}
+                    size="text-[5.7vmin]"
+                    onInView={false}
                 />
             </div>
             <div className="flex items-center justify-between text-[3vmin] col-span-4 font-serif">

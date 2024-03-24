@@ -1,1 +1,0 @@
-export { HighlightedHeader } from './HighlightedHeader'
