@@ -16,7 +16,7 @@ export const ModeText = ({
     )
     
     return (
-        <div className={`font-serif text-[3vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
+        <div className={`font-serif text-[12px] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
             {children}
         </div>
     )
