@@ -4,7 +4,8 @@ import {
   AboutTerminal,
   SocialsNav,
   Transition,
-  DragDots
+  DragDots,
+  HighlightedHeader
 } from '~/components'
 import React, { forwardRef, useCallback, useRef } from 'react'
 
@@ -34,7 +35,7 @@ const Home = (_: IndexPageProps, ref: IndexPageRef) => {
         </div>
         <div className='px-8 text-[4vmin] my-2 text-center flex justify-center items-center'>
           <div className={`text-[5vmin] w-full font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#eeeeee]'}`}>
-            <p>Let&apos;s build together!</p>
+            <HighlightedHeader text='Let&apos;s build together!' onInView={true}/>
           </div>
         </div>
         <div className='my-6 w-full h-full'>

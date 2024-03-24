@@ -35,21 +35,25 @@ export const useScrollSettings = create<ScrollSettings>((set, get) => ({
         if (nextPostition > lastPosition && absDistance > 75){
             set({
                 scrollDirection: 'down',
-                lastPosition: nextPostition
+                lastPosition: nextPostition,
+                animationState: 'active'
             })
 
             setTimeout(() => set({
                 scrollDirection: 'stable',
+                animationState: 'complete'
             }), 1000)
 
         } else if (nextPostition < lastPosition && absDistance > 75){
             set({
                 scrollDirection: 'up',
-                lastPosition: nextPostition
+                lastPosition: nextPostition,
+                animationState: 'active'
             })
 
             setTimeout(() => set({
                 scrollDirection: 'stable',
+                animationState: 'complete'
             }), 1000)
 
         }

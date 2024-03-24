@@ -18,7 +18,7 @@ export const CubeFace = ({
 
     const controls = useAnimation()
     useEffect(() => {
-        controls.start("animate")
+        controls.start("animateFace")
     }, [controls])
 
     return (
@@ -28,13 +28,14 @@ export const CubeFace = ({
             <motion.path 
                 key={`face-${idx}`}
                 animate={controls}
+                initial={{opacity: 1}}
                 transition={{
                     delay: delay,
                     duration: duration,
                     repeat: Infinity
                 }}
                 variants={{
-                    animate: {
+                    animateFace: {
                         opacity: steps[idx]
                     }
                 }}

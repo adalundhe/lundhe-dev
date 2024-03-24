@@ -1,4 +1,5 @@
 import { ReactElement } from "react"
+import { motion } from 'framer-motion'
 import Link from "next/link"
 
 export const SocialsLink = ({
@@ -15,7 +16,16 @@ export const SocialsLink = ({
             rel="noopener noreferrer" 
             target="_blank"
         >
-            {icon}
+            <motion.p
+                transition={{
+                    duration: 0.3
+                }}
+                whileHover={{
+                    scale: 1.25
+                }}
+            >{
+                icon
+            }</motion.p>
         </Link>
     )
 }

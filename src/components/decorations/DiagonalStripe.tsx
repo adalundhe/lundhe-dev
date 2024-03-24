@@ -26,11 +26,11 @@ export const DiagonalStripe = ({
 
     const controls = useAnimation()
     useEffect(() => {
-        controls.start("hidden")
+        controls.start("hideStripe")
 
         
         if (hovering){
-            controls.start("animate")
+            controls.start("animateStripe")
         }
 
     }, [controls, hovering])
@@ -42,8 +42,9 @@ export const DiagonalStripe = ({
             <motion.line 
                 key={`face-${idx}`}
                 animate={controls}
+                initial={{opacity: 1}}
                 variants={{
-                    animate: {
+                    animateStripe: {
                         opacity: steps[idx],
                         transition: {
                             delay: delay,
@@ -51,7 +52,7 @@ export const DiagonalStripe = ({
                             repeat: Infinity,
                         }
                     },
-                    hidden: {
+                    hideStripe: {
                         opacity: 1
                     }
                 }}

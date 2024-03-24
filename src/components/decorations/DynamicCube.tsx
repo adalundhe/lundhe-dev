@@ -1,5 +1,4 @@
-import { motion, useAnimation } from 'framer-motion'
-import { useEffect } from 'react'
+import { motion } from 'framer-motion'
 
 
 export const DynamicCubeFace = ({
@@ -18,26 +17,18 @@ export const DynamicCubeFace = ({
     hovering: boolean
 }) => {
 
-    const controls = useAnimation()
-    useEffect(() => {
-        controls.start("hidden")
-
-        
-        if (hovering){
-            controls.start("animate")
-        }
-
-    }, [controls, hovering])
-
     return (
         <>
         {
             colors.map((color, idx) => 
             <motion.path 
                 key={`face-${idx}`}
-                animate={controls}
+                animate={
+                    hovering ? "animateDynamicCube" : "hideCube"
+                }
+                initial={{opacity: 1}}
                 variants={{
-                    animate: {
+                    animateDynamicCube: {
                         opacity: steps[idx],
                         transition: {
                             delay: delay,
@@ -45,7 +36,7 @@ export const DynamicCubeFace = ({
                             repeat: Infinity,
                         },
                     },
-                    hidden: {
+                    hideCube: {
                         opacity: 1
                     }
                 }}

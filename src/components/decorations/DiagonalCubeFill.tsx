@@ -23,7 +23,7 @@ export const DiagonalCubeFill = ({
         },
         {
             delay: createRandomOffset(
-                2,
+                3,
                 0
             ),
             duration: createRandomOffset(
@@ -33,15 +33,15 @@ export const DiagonalCubeFill = ({
         },
         {
             delay: createRandomOffset(
-                4,
+                5,
                 0
             ),
             duration: createRandomOffset(
-                6,
+                7,
                 2
             )
         }
-    ], [createRandomOffset])   
+    ], [])   
 
     const {
         mode

@@ -16,13 +16,6 @@ export type BoundarySet = {
     right: number
 }
 
-const generateNextCoordinates = (boundaries: BoundarySet) => ({
-    top: Math.random() * boundaries.top,
-    bottom: Math.random() * boundaries.bottom,
-    left: Math.random() * boundaries.left,
-    right: Math.random() * boundaries.right
-})
-
 export const Dot = ({
     id,
     radius,
@@ -46,7 +39,7 @@ export const Dot = ({
         bottom: canvasHeight - y - (radius * 2),
         left: 0 - x + (radius * 2),
         right: canvasWidth - x - (radius * 2)
-    }), [canvasHeight, canvasWidth, x, y])
+    }), [canvasHeight, canvasWidth, x, y, radius])
 
 
     useEffect(() => {

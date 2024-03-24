@@ -12,7 +12,7 @@ export const Cubes = () => {
 
     const controls = useAnimation()
     useEffect(() => {
-        controls.start("animate")
+        controls.start("animateCube")
     }, [controls])
 
     const offsets = useMemo(() => [
@@ -46,7 +46,7 @@ export const Cubes = () => {
                 2
             )
         }
-    ], [createRandomOffset])  
+    ], [])  
     
     const {
         mode
@@ -147,7 +147,7 @@ export const Cubes = () => {
                         mass: 4
                     }}
                     variants={{
-                        animate: {
+                        animateCicle: {
                             y: '12%'
                         }
                     }}

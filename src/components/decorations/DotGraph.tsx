@@ -60,9 +60,6 @@ export const DragDots = () => {
         height: (sizeRef.current?.clientHeight ?? 100)
     }))
 
-
-  console.log(sizeRef.current?.clientHeight)
-
     window.addEventListener(
         'resize',
         () => setDraggingItems(generateCircles({ 

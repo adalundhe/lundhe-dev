@@ -13,7 +13,7 @@ export const HighlightedHeader = ({
     const textRef = useRef<Element>(null)
 
     useEffect(() => {
-        controls.start("hidden")
+        controls.start("hideHeader")
         const observer = new IntersectionObserver(async ([entry]) => {
             if (entry?.isIntersecting) {
                 await new Promise((resolve) =>
@@ -51,7 +51,7 @@ export const HighlightedHeader = ({
                     initial={{ width: "0%" }}
                     variants={{
                         visible: { width: "100%" },
-                        hidden: { width: "0%" },
+                        hideHeader: { width: "0%" },
                     }}
                     transition={{ duration: 1 }}
                     whileInView={onInView ? "visible" : ""}

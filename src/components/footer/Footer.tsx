@@ -21,7 +21,8 @@ export const Footer = () => {
     } = useScrollSettings((state) => ({
         scrollDir: state.scrollDirection,
         animationState: state.animationState,
-        lastPos: state.lastPosition
+        lastPos: state.lastPosition,
+        active: state.animationState
     }))
 
 
@@ -47,7 +48,7 @@ export const Footer = () => {
             })
         }
 
-    }, [scrollDir, animate, scope])
+    }, [scrollDir, animate, scope, lastPos])
 
     return (
         <footer 

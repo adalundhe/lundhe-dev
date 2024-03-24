@@ -41,7 +41,7 @@ export const ColoredNavbarLink = ({
                 <Link href={`/${link}`} scroll={false} className="w-fit">
                     <svg width="100%" height="60px" >
                         <pattern 
-                            id="empty" 
+                            id="emptyHatch" 
                             width="10" 
                             height="10" 
                             patternTransform="rotate(55)" 
@@ -59,7 +59,7 @@ export const ColoredNavbarLink = ({
                                 strokeWidth={10}
                             />
                         </pattern>
-                        <text alignmentBaseline="middle" x="5px" y="0%" fill="url(#empty)">{title}</text>
+                        <text alignmentBaseline="middle" x="5px" y="0%" fill="url(#emptyHatch)">{title}</text>
                     </svg>
                 </Link>
                 <motion.span
@@ -71,7 +71,6 @@ export const ColoredNavbarLink = ({
                         hidden: { width: "0%" },
                     }}
                     transition={{ duration: 4 }}
-                    whileInView={onInView ? "visible" : ""}
                 >
                     <Link href={`/${link}`} scroll={false} className="w-fit">
                         <svg width="100%" height="60px" >
