@@ -29,15 +29,13 @@ export const Footer = () => {
 
         if (scrollDir === 'stable'){
             animate(scope.current, {
-                y: 0,
-                opacity: 1
+                height: '60px'
             }, {
                 duration: 0.25,
             })
         } else {
             animate(scope.current, {
-                y: 100,
-                opacity: 0
+                height: 0,
             }, {
                 duration: 0.25
             })
@@ -48,19 +46,42 @@ export const Footer = () => {
     return (
         <footer 
             className={
-                `row-span-2 w-full font-sans text-[2.75vmin] flex`
+                `row-span-2 w-full font-sans text-[2.75vmin] grid grid-cols-12 ${mode === 'light' ? ' bg-[#212121]' : 'bg-[#171717]'}`
             }
             ref={scope}
-        >
+        >   
+            <div className="col-span-4"></div>
             <div
-                className={`h-[60px] ${mode === 'light' ? ' bg-[#212121]' : 'bg-[#171717]'} flex items-center w-full self-end`}
+                className="col-span-4"
             >
-                <p
-                    className={`w-full text-center ${mode === 'light' ? 'text-[#BDBDBD]' : 'text-[#eeeeee]'}`}
-                >
-                    © Ada Lündhé {currentYear}
-                </p>
+                <svg className="w-full text-center" width="100%" height="60px" >
+                    <pattern 
+                        id="diagonalHatch" 
+                        width="30" 
+                        height="10" 
+                        patternTransform="rotate(55)" 
+                        patternUnits="userSpaceOnUse"
+                    >
+                        <rect width="100%" height="100%" fill="#F3E5F5"></rect>
+                        <line 
+                            x1="5" 
+                            x2="5" 
+                            y2="10" 
+                            stroke="#4FC3F7"
+                            strokeWidth={10}
+                        />
+                        <line 
+                            x1="15" 
+                            x2="15" 
+                            y2="10" 
+                            stroke="#F06292"
+                            strokeWidth={10}
+                        />
+                    </pattern>
+                    <text textAnchor="middle" x="50%" y="55%" width="100%" height="100%" fill="url(#diagonalHatch)"> © Ada Lündhé {currentYear}</text>
+                </svg>
             </div>
+            <div className="col-span-4"></div>
         </footer>
     )
 }

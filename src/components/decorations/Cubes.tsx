@@ -1,6 +1,17 @@
 import { motion, useAnimation } from 'framer-motion'
 import { CubeFace } from './CubeFace'
-import { useEffect } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
+
+
+const createRandomOffset = (range: number, base: number) => {
+    const slack = Math.random() * Math.round(Math.random()) ? 1 : -1
+
+    return (Math.random() * range) + base + slack
+
+}
+
+
+
 
 export const Cubes = () => {
 
@@ -9,6 +20,39 @@ export const Cubes = () => {
         controls.start("animate")
     }, [controls])
 
+    const offsets = useMemo(() => [
+        {
+            delay: createRandomOffset(
+                1,
+                4
+            ),
+            duration: createRandomOffset(
+                4,
+                2
+            )
+        },
+        {
+            delay: createRandomOffset(
+                2,
+                5
+            ),
+            duration: createRandomOffset(
+                5,
+                2
+            )
+        },
+        {
+            delay: createRandomOffset(
+                3,
+                6
+            ),
+            duration: createRandomOffset(
+                6,
+                2
+            )
+        }
+    ], [createRandomOffset])   
+    
     return (
         <div className="w-full h-[25vw] flex items-center justify-center">
             <motion.svg
@@ -32,8 +76,12 @@ export const Cubes = () => {
                                 [0, 0, 1, 0]
                             ]}
                             drawLine='M0,0 l5,3 v5 l-5,-3 z'
-                            delay={4}
-                            duration={2}
+                            delay={offsets[Math.floor(
+                                Math.random() * offsets.length
+                            )]?.delay as number}
+                            duration={offsets[Math.floor(
+                                Math.random() * offsets.length
+                            )]?.duration as number}
                         />
                         <CubeFace
                             key={'face-r'}
@@ -48,8 +96,12 @@ export const Cubes = () => {
                                 [0, 0, 1, 0]
                             ]}
                             drawLine='M10,0 l-5,3 v5 l5,-3 z'
-                            delay={5}
-                            duration={3}
+                            delay={offsets[Math.floor(
+                                Math.random() * offsets.length
+                            )]?.delay as number}
+                            duration={offsets[Math.floor(
+                                Math.random() * offsets.length
+                            )]?.duration as number}
                         />
                         <CubeFace
                             key={'face-t'}
@@ -64,8 +116,12 @@ export const Cubes = () => {
                                 [0, 0, 1, 0]
                             ]}
                             drawLine='M0,0 l5,3 5,-3 -5,-3 -5,3 M0,5 l5,3 -5,3 -5,-3 M10,5 l5,3 -5,3 -5,-3 5,-3'
-                            delay={6}
-                            duration={4}
+                            delay={offsets[Math.floor(
+                                Math.random() * offsets.length
+                            )]?.delay as number}
+                            duration={offsets[Math.floor(
+                                Math.random() * offsets.length
+                            )]?.delay as number}
                         />
                     </g>
                     <pattern id="pattern-cubes" patternUnits="userSpaceOnUse" width="40" height="64" viewBox="0 0 10 16">
