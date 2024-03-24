@@ -5,8 +5,8 @@ import {
     Transition,
     ScrollContainer,
     BlogPostContainer
-  } from '~/components'
-  import React, { forwardRef } from 'react'
+} from '~/components'
+import React, { forwardRef } from 'react'
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
 import rehypeCodeTitles from 'rehype-code-titles'
 import remarkGfm from 'remark-gfm';

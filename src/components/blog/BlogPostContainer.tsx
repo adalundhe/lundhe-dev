@@ -1,4 +1,5 @@
 
+import { ModeText } from '~/components/mdx'  
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 export const BlogPostContainer = ({
@@ -8,7 +9,9 @@ export const BlogPostContainer = ({
 }) => <div className='flex justify-center pb-6'>
     <div className='w-4/5 h-full [&>*]:font-serif'>
        {
-        mdx && <MDXRemote  {...mdx}/>
+        mdx && <MDXRemote  {...mdx} components={{
+            'ModeText': ModeText
+        }}/>
        }
     </div>
 </div>
