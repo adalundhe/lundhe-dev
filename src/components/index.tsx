@@ -1,4 +1,12 @@
-export { DragDots, Cubes, HighlightedHeader, ColoredHighlightedHeader } from './decorations'
+export { 
+    DragDots, 
+    Cubes, 
+    HighlightedHeader, 
+    ColoredHighlightedHeader,
+    DiagonalStripeFill,
+    DiagonalCubeFill,
+    ModeText
+} from './decorations'
 export { BlogSummaryList, BlogPostContainer, type BlogSummary } from './blog'
 export { Footer } from './footer'
 export { NavBar } from './navbar'

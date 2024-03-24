@@ -1,26 +1,21 @@
-import { motion, useAnimation } from 'framer-motion'
-import { CubeFace } from './CubeFace'
-import { useCallback, useEffect, useMemo, useRef } from 'react'
-import { useSiteSettings } from '~/utils/store'
+import React, { useCallback, useMemo } from "react"
+import { useSiteSettings } from "~/utils/store"
+import { DynamicCubeFace } from "./DynamicCube"
 
 const createRandomOffset = (range: number, base: number) => {
     const slack = Math.random() * Math.round(Math.random()) ? 1 : -1
     return (Math.random() * range) + base + slack
 }
 
-export const Cubes = () => {
-
-    const controls = useAnimation()
-    useEffect(() => {
-        controls.start("animate")
-    }, [controls])
+export const DiagonalCubeFill = ({
+    hovering
+}: {
+    hovering: boolean
+}) => {
 
     const offsets = useMemo(() => [
         {
-            delay: createRandomOffset(
-                1,
-                4
-            ),
+            delay: 0,
             duration: createRandomOffset(
                 4,
                 2
@@ -29,7 +24,7 @@ export const Cubes = () => {
         {
             delay: createRandomOffset(
                 2,
-                5
+                0
             ),
             duration: createRandomOffset(
                 5,
@@ -38,16 +33,16 @@ export const Cubes = () => {
         },
         {
             delay: createRandomOffset(
-                3,
-                6
+                4,
+                0
             ),
             duration: createRandomOffset(
                 6,
                 2
             )
         }
-    ], [createRandomOffset])  
-    
+    ], [createRandomOffset])   
+
     const {
         mode
     } = useSiteSettings(
@@ -55,10 +50,10 @@ export const Cubes = () => {
             mode: state.visibilityMode
         }), [])
     )
-    
+
     return (
-        <div className="w-full h-[25vw] flex items-center justify-center">
-            <motion.svg
+        <div className="w-full h-full">
+            <svg
                 className="flex items-center justify-center"
                 width="100%"
                 height="100%"
@@ -66,12 +61,13 @@ export const Cubes = () => {
                 <defs>
                     <g id="cube"
                     >
-                        <CubeFace
+                        <DynamicCubeFace
+                            hovering={hovering}
                             key={'face-l'}
                             colors={[
                                 'fill-[#F06292]',
                                 'fill-[#4FC3F7]',
-                                mode === 'light' ? 'fill-[#7B1FA2]' : 'fill-[#F3E5F5]',
+                                mode === 'light' ? 'fill-[#7B1FA2]' : 'fill-[#F3E5F5]'
                             ]}
                             steps={[
                                 [1, 0, 0, 1],
@@ -86,7 +82,8 @@ export const Cubes = () => {
                                 Math.random() * offsets.length
                             )]?.duration as number}
                         />
-                        <CubeFace
+                        <DynamicCubeFace
+                            hovering={hovering}
                             key={'face-r'}
                             colors={[
                                 'fill-[#4FC3F7]',
@@ -106,7 +103,8 @@ export const Cubes = () => {
                                 Math.random() * offsets.length
                             )]?.duration as number}
                         />
-                        <CubeFace
+                        <DynamicCubeFace
+                            hovering={hovering}
                             key={'face-t'}
                             colors={[
                                 mode === 'light' ? 'fill-[#7B1FA2]' : 'fill-[#F3E5F5]',
@@ -133,31 +131,18 @@ export const Cubes = () => {
                         <use x="-5" y="8" href="#cube"/>
                     </pattern>
                 </defs>
-                <motion.circle
-                    cx={'50%'}
-                    cy={'34%'}
-                    r={'13.5%'}
-                    initial={{y: '0%'}}
-                    animate={controls}
-                    transition={{ 
-                        type: "spring", 
-                        bounce: 2,
-                        stiffness: 750,
-                        mass: 4
-                    }}
-                    variants={{
-                        animate: {
-                            y: '12%'
-                        }
-                    }}
-                    className="focus:outline-none"
-                    fillOpacity={0.75}
+                <rect
+                    clipPath="polygon(100% 0, 0 100%, 100% 100%)"
+                    x={'0%'}
+                    y={'0%'}
+                    width={"100%"}
+                    height={"100%"}
                     stroke={'transparent'}
                     strokeWidth={0}
                     id="canvas" 
                     fill="url(#pattern-cubes)"
                 />
-            </motion.svg>
+            </svg>
         </div>
     )
 }

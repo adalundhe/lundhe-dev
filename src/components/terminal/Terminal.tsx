@@ -90,7 +90,7 @@ const writeToConsole = ({
        
         
         setTime(Date.now())
-    }, 30);
+    }, 150);
 }
 
 export const AboutTerminal = () => {
@@ -155,7 +155,7 @@ export const AboutTerminal = () => {
                 }
     
     
-            }, 3750)
+            }, 7000)
             
         
             
