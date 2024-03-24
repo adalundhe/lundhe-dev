@@ -46,7 +46,7 @@ export const ColoredHighlightedHeader = ({
                         visible: { width: "100%" },
                         hidden: { width: "0%" },
                     }}
-                    transition={{ duration: 5 }}
+                    transition={{ duration: 4 }}
                     whileInView={onInView ? "visible" : ""}
                 >
                     <svg className="w-full" height="60px" >
