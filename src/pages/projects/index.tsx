@@ -21,11 +21,7 @@ const Projects = (_: ProjectsPageProps, ref: ProjectsPageRef) => {
 
     return (
         <Transition ref={ref}>
-            <div className={`row-span-full flex justify-center overflow-y-none`}>
-                <div className="overflow-y-scroll">
-
-                </div>
-            </div>
+          <></>
         </Transition>
     )
 }
