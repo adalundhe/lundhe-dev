@@ -64,8 +64,8 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
                             </div>
                         </div>
                     </div>
-                    <div className={`mt-2 mb-6 py-2 font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'} flex justify-center items-center text-[5vmin]`}>
-                        Let&apos;s build together!
+                    <div className={`mt-2 mb-6 py-2 flex justify-center items-center`}>
+                        <HighlightedHeader  text="Let&apos;s build together!"/>
                     </div>
                 </>
             </ScrollContainer>

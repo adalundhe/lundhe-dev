@@ -3,9 +3,11 @@ import { motion, useAnimation } from "framer-motion"
 import { useSiteSettings } from "~/utils/store"
 
 export const HighlightedHeader = ({
-    text
+    text,
+    onInView
 }: {
-    text: string
+    text: string,
+    onInView: boolean
 }) => {
     const controls = useAnimation()
     const textRef = useRef<Element>(null)
@@ -36,7 +38,7 @@ export const HighlightedHeader = ({
 
     return (
         <div
-            className={`whitespace-nowrap w-full font-sans flex justify-center text-[5vmin] ${ mode === 'light' ? 'text-[#E0E0E0]' : 'text-[#BDBDBD]'}`}
+            className={`whitespace-nowrap w-full font-sans flex justify-center text-[5vmin] ${ mode === 'light' ? 'text-[#E0E0E0]' : 'text-[rgb(189, 189, 189, 0.75)]'}`}
             ref={textRef as LegacyRef<HTMLDivElement>}
         >
             <span 
@@ -52,6 +54,7 @@ export const HighlightedHeader = ({
                         hidden: { width: "0%" },
                     }}
                     transition={{ duration: 1 }}
+                    whileInView={onInView ? "visible" : ""}
                 >
                     {text}
                 </motion.span>
