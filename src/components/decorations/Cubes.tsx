@@ -57,11 +57,11 @@ export const Cubes = () => {
     )
     
     return (
-        <div className="w-full h-[25vw] flex items-center justify-center">
+        <div className="w-full h-fit flex items-center justify-center">
             <motion.svg
                 className="flex items-center justify-center"
                 width="100%"
-                height="100%"
+                height="50vmin"
             >
                 <defs>
                     <g id="cube"
@@ -134,9 +134,10 @@ export const Cubes = () => {
                     </pattern>
                 </defs>
                 <motion.circle
+                    alignmentBaseline="central"
                     cx={'50%'}
-                    cy={'34%'}
-                    r={'13.5%'}
+                    cy={'38%'}
+                    r={'20vmin'}
                     initial={{y: '0%'}}
                     animate={controls}
                     transition={{ 

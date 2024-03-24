@@ -29,8 +29,8 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
                 <>
                     <Cubes/>
                     <HighlightedHeader  text="Hi there!" onInView={false}/>
-                    <div className="mt-2 mb-4 w-full flex justify-center">
-                        <div className={`w-3/4 text-[3vmin] w-3/4 text-[3vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
+                    <div className="mt-2 mb-4 w-full flex justify-center h-full">
+                        <div className={`h-full w-3/4 text-[3vmin] w-3/4 text-[3vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
                             <ColoredHighlightedHeader text="Who are you?" size="text-[4.5vmin]" onInView={false} />
                             <p> I&apos;m a certified shmorgasboard software engineer who excels at building processes, teams, and tooling
                             that solves major pain points for engineering organizations.
@@ -61,7 +61,7 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
                             </div>
                         </div>
                     </div>
-                    <div className={`mt-2 mb-6 py-2 flex justify-center items-center`}>
+                    <div className={`mt-2 mb-6 pt-2 pb-8 flex justify-center items-center`}>
                         <HighlightedHeader  text="Let&apos;s build together!" onInView={true}/>
                     </div>
                 </>

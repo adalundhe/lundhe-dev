@@ -26,10 +26,10 @@ const Home = (_: IndexPageProps, ref: IndexPageRef) => {
   return (
     <Transition ref={ref}>
       <div className='flex flex-col'>
-        <div className={`px-8 my-2 ${mode === 'light' ? 'text-[#212121]' : 'text-[#eeeeee]'} w-full grid grid-cols-12`}>
+        <div className={`px-8 my-6 ${mode === 'light' ? 'text-[#212121]' : 'text-[#eeeeee]'} w-full grid grid-cols-12`}>
           <AboutTerminal />
         </div>
-        <div className='my-2 w-full h-full'>
+        <div className='my-6 w-full h-full'>
             <DragDots />
         </div>
         <div className='px-8 text-[4vmin] my-2 text-center flex justify-center items-center'>
@@ -37,10 +37,10 @@ const Home = (_: IndexPageProps, ref: IndexPageRef) => {
             <p>Let&apos;s build together!</p>
           </div>
         </div>
-        <div className='my-2 w-full h-full'>
+        <div className='my-6 w-full h-full'>
             <DragDots />
         </div>
-        <div className='my-2 py-6 w-full'>
+        <div className='my-6 py-6 w-full'>
           <SocialsNav/>
         </div>
       </div>

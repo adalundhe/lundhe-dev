@@ -54,7 +54,7 @@ export const BlogSummaryCard = ({
             className={`w-4/5 shadow ${mode === 'light' ? '' : 'shadow-[#374151] bg-[#27272A]'} grid grid-cols-12`}
             ref={scope}
         >
-            <div className="col-span-9 py-2 pl-2 mb-4">
+            <div className="col-span-8 py-2 pl-2 mb-4">
                 <div>
                     <h1 
                         onMouseEnter={() => {
@@ -103,7 +103,7 @@ export const BlogSummaryCard = ({
                     }
                 </div>
             </div>
-            <div className="col-span-3">
+            <div className="col-span-4">
                 <DiagonalCubeFill hovering={hovering} />
             </div>
         </div>
