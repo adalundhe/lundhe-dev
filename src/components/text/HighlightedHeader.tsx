@@ -44,7 +44,7 @@ export const HighlightedHeader = ({
             >
                 {text}
                 <motion.span
-                    className={`absolute px-4 overflow-hidden top-0 left-0 whitespace-nowrap w-[0%] font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}
+                    className={`absolute px-4 overflow-hidden top-0 left-0 whitespace-nowrap w-[0%] font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#F5F5F5]'}`}
                     animate={controls}
                     initial={{ width: "0%" }}
                     variants={{

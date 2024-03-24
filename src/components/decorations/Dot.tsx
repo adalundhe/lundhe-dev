@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion';
-import { useMemo } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { number } from 'zod';
 
 export type DotData = {
     id: string;
@@ -8,7 +9,19 @@ export type DotData = {
     y: number;
   }
 
+export type BoundarySet = {
+    top: number,
+    bottom: number,
+    left: number,
+    right: number
+}
 
+const generateNextCoordinates = (boundaries: BoundarySet) => ({
+    top: Math.random() * boundaries.top,
+    bottom: Math.random() * boundaries.bottom,
+    left: Math.random() * boundaries.left,
+    right: Math.random() * boundaries.right
+})
 
 export const Dot = ({
     id,
@@ -17,31 +30,60 @@ export const Dot = ({
     y,
     canvasHeight,
     canvasWidth,
-    color
+    color,
+    idx
 }: DotData & {
     canvasHeight: number,
     canvasWidth: number,
-    color: string
+    color: string,
+    idx: number
 }) => {
 
-    const boundaries: {
-        top: number,
-        bottom: number,
-        left: number,
-        right: number
-      } = useMemo(() => ({
+    const controls = useAnimation()
+
+    const boundaries: BoundarySet = useMemo(() => ({
         top: 0 - y + (radius * 2),
         bottom: canvasHeight - y - (radius * 2),
         left: 0 - x + (radius * 2),
         right: canvasWidth - x - (radius * 2)
     }), [canvasHeight, canvasWidth, x, y])
 
+
+    useEffect(() => {
+        controls.start("animateDot")
+
+    }, [controls])
+
+    
     return (
         <motion.circle
             whileHover={{
+                x: ((Math.random() * 10) + 1) * (Math.round(Math.random()) > 0 ? 1 : -1),
+                y: ((Math.random() * 10) + 1) * (Math.round(Math.random()) > 0 ? 1 : -1),
                 scale: 1.5,
                 fillOpacity: 0.9,
-                transition: { duration: 0.5 },
+                transition: { 
+
+                    type: "spring",
+                    bounce: (Math.random() * 10) + 1,
+                    stiffness: (Math.random() * idx) + 50,
+                    mass: (Math.random() * 10) + 1,
+                    repeat: Infinity
+                },
+            }}
+
+            animate={controls}
+            variants={{
+                animateDot: {
+                    x: ((Math.random() * 10) + 1) * (Math.round(Math.random()) > 0 ? 1 : -1),
+                    y: ((Math.random() * 10) + 1) * (Math.round(Math.random()) > 0 ? 1 : -1),
+                    transition: { 
+                        type: "spring",
+                        bounce: (Math.random() * 10) + 1,
+                        stiffness: (Math.random() * idx) + 50,
+                        mass: (Math.random() * 10) + 1
+                    },
+                }
             }}
 
             className="focus:outline-none cursor-pointer"

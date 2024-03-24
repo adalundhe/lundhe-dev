@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useEffect, useRef } from 'react';
 import { scaleOrdinal } from '@visx/scale';
 import { getSeededRandom } from '@visx/mock-data';
-import { motion, useAnimate } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { DotData, Dot } from './Dot'
 
 
@@ -10,12 +10,10 @@ const generateCircles = ({ width, height }: { width: number; height: number }) =
   const xRandom = getSeededRandom(Math.random());
   const yRandom = getSeededRandom(Math.random());
 
-
-
   return new Array(
     Math.round(
         Math.sqrt(Math.abs(width - height))
-       ) * 4
+       ) * 8
   ).fill(1).map((_, i) => {
     const radius = 25 - radiusRandom() * 20;
     return {
@@ -62,6 +60,9 @@ export const DragDots = () => {
         height: (sizeRef.current?.clientHeight ?? 100)
     }))
 
+
+  console.log(sizeRef.current?.clientHeight)
+
     window.addEventListener(
         'resize',
         () => setDraggingItems(generateCircles({ 
@@ -82,6 +83,7 @@ export const DragDots = () => {
     [sizeRef.current?.clientWidth , sizeRef.current?.clientHeight],
   );
 
+
   return (
     <motion.div 
         layout
@@ -92,12 +94,12 @@ export const DragDots = () => {
             layout
             width="100%" 
             height="100%"  
-            className='m-1'
         >
-        {draggingItems.map((d, i) => {
+        {draggingItems.map((d, idx) => {
             return (
                 <Dot 
                     key={d.id}
+                    idx={idx}
                     {...d}
                     canvasHeight={
                         sizeRef.current?.clientHeight ?? 100

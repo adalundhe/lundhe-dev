@@ -28,12 +28,11 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
                 <>
                     <Cubes/>
                     <HighlightedHeader  text="Hi there!"/>
-                    <div className="my-2 w-full flex justify-center">
+                    <div className="mt-2 mb-4 w-full flex justify-center">
                         <div className={`w-3/4 text-[3vmin] w-3/4 text-[3vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
-                            <p className={`font-sans text-[4.5vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
+                            <p className={`font-sans mb-2 text-[4.5vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
                                     Who are you?
                             </p>
-                            <br/>
                             <p> I&apos;m a certified shmorgasboard software engineer who excels at building processes, teams, and tooling
                             that solves major pain points for engineering organizations.
                             </p>
@@ -46,12 +45,11 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
                             </p> 
                         </div> 
                     </div>
-                    <div className="my-2 w-full flex justify-center">
+                    <div className="mt-2 mb-4 w-full flex justify-center">
                         <div className={`w-3/4 text-[3vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
-                            <p className={`font-sans text-[4.5vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
+                            <p className={`font-sans mb-2 text-[4.5vmin] ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}>
                                 How do you do it?
                             </p>
-                            <br/>
                             <p>
                                 I primarily work in <i>Python</i>, <i>Typescript</i>, <i>C++</i>, and <i>GoLang</i>, but have plentiful experience with other languages like Rust or 
                                 Scala. Likewise,  I most frequently work in environments using <i>AWS</i>, <i>Kubernetes</i>, <i>Docker</i>, and either <i>Github</i> or <i>GitLab</i> for CI/CD.
@@ -66,7 +64,7 @@ const About = (_: AboutPageProps, ref: AboutPageRef) => {
                             </div>
                         </div>
                     </div>
-                    <div className={`my-2 py-4 font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'} flex justify-center items-center text-[5vmin]`}>
+                    <div className={`mt-2 mb-6 py-2 font-sans ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'} flex justify-center items-center text-[5vmin]`}>
                         Let&apos;s build together!
                     </div>
                 </>

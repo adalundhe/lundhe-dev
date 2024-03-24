@@ -40,10 +40,9 @@ const Home = (_: IndexPageProps, ref: IndexPageRef) => {
         <div className='my-2 w-full h-full'>
             <DragDots />
         </div>
-        <div className='my-2 w-full'>
+        <div className='my-2 py-6 w-full'>
           <SocialsNav/>
         </div>
-
       </div>
     </Transition>
   );
