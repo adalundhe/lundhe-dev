@@ -1,10 +1,11 @@
-import { BlogSummaryCard, BlogSummary } from "./BlogSummaryCard";
+import { BlogSummaryCard } from "./BlogSummaryCard";
+import { BlogSummaries } from "~/utils/store";
 
 
 export const BlogSummaryList = ({
     summaries
 }: {
-    summaries: Array<BlogSummary>
+    summaries: BlogSummaries
 }) => {
 
     return (

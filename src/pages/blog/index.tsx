@@ -1,9 +1,11 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useEffect } from 'react'
 import {
   Transition,
   ScrollContainer,
-  BlogSummaryList
+  BlogSummaryList,
+  SearchBar
 } from '~/components'
+import { useBlogStore } from '~/utils/store'
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
 
 
@@ -33,19 +35,32 @@ const Blog = ({
   summaries
 }: InferGetStaticPropsType<typeof getStaticProps>, ref: BlogPageRef) => {
 
+    const {
+      filtered,
+      setSummaries
+    } = useBlogStore((state) => ({
+      filtered: state.filteredSummaries,
+      setSummaries: state.setSummaries
+    }))
+
+    useEffect(() => {
+
+      setSummaries(summaries.map(summary => ({
+        ...summary,
+        date: new Date(summary.date)
+      })).sort(
+        (a,b) => b.date.getTime() - a.date.getTime()
+      ))
+
+    }, [summaries, setSummaries])
+
     return (
         <Transition ref={ref}>
             <ScrollContainer>
-                <BlogSummaryList summaries={
-                   summaries.map(summary => ({
-                    ...summary,
-                    date: new Date(summary.date)
-                  })).sort(function(a,b){
-                    // Turn your strings into dates, and then subtract them
-                    // to get a value that is either negative, positive, or zero.
-                    return b.date.getTime() - a.date.getTime();
-                  })
-                } />
+              <>
+              <SearchBar />
+              <BlogSummaryList summaries={filtered} />
+              </>
             </ScrollContainer>
         </Transition>
     )

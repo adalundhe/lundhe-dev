@@ -1,18 +1,11 @@
-import { useCallback, useRef, useState } from "react";
-import { useSiteSettings } from "~/utils/store";
+import { useCallback, useState } from "react";
+import { useSiteSettings, BlogSummary } from "~/utils/store";
 import { useAnimate } from "framer-motion"
 import { BlogSummaryTag } from "./BlogSummaryTag";
 import { DiagonalCubeFill } from '~/components/decorations'
 
 import Link from "next/link";
 
-export type BlogSummary = {
-    date: Date;
-    summary: string;
-    title: string;
-    tags: Array<string>
-    slug: string
-}
 
 
 export const BlogSummaryCard = ({
