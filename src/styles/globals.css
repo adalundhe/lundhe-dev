@@ -35,3 +35,10 @@ pre:has(.hljs), .hljs {
     color: #c9d1d9;
     background: #0d1117;
 }
+
+input {
+    padding-block: 0;
+    padding-inline: 0;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+}

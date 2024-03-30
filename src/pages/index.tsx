@@ -27,7 +27,7 @@ const Home = (_: IndexPageProps, ref: IndexPageRef) => {
   return (
     <Transition ref={ref}>
       <div className='flex flex-col'>
-        <div className={`px-8 h-[100vmin] my-6 ${mode === 'light' ? 'text-[#212121]' : 'text-[#eeeeee]'} w-full relative`}>
+        <div className={`px-8 h-[100vmin] mb-6 ${mode === 'light' ? 'text-[#212121]' : 'text-[#eeeeee]'} w-full relative`}>
           <div className='flex w-full h-full items-center justify-center'>
             <AbstractShapeDisplay />
             <AboutTerminal />

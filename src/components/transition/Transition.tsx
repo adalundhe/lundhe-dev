@@ -11,12 +11,12 @@ const PageTransition = ({ children, ...rest }: PageTransitionProps, ref: PageTra
 	return (
 		<motion.div
 			ref={ref}
-            initial={{ opacity: 0, y: 0 }}
+            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
 			transition={transition}
 			{...rest}
-            className='h-full flex flex-col'
+			className='w-full'
 		>
 			{children}
 		</motion.div>

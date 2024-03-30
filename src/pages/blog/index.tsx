@@ -36,9 +36,11 @@ const Blog = ({
 }: InferGetStaticPropsType<typeof getStaticProps>, ref: BlogPageRef) => {
 
     const {
+      tags,
       filtered,
       setSummaries
     } = useBlogStore((state) => ({
+      tags: state.postTags,
       filtered: state.filteredSummaries,
       setSummaries: state.setSummaries
     }))

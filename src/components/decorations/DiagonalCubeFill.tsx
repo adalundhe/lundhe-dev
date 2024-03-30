@@ -8,9 +8,11 @@ const createRandomOffset = (range: number, base: number) => {
 }
 
 export const DiagonalCubeFill = ({
-    hovering
+    hovering,
+    postIdx
 }: {
-    hovering: boolean
+    hovering: boolean,
+    postIdx: number
 }) => {
 
     const offsets = useMemo(() => [
@@ -59,7 +61,7 @@ export const DiagonalCubeFill = ({
                 height="100%"
             >
                 <defs>
-                    <g id="cube"
+                    <g id={`cube-${postIdx}`}
                     >
                         <DynamicCubeFace
                             hovering={hovering}
@@ -125,10 +127,16 @@ export const DiagonalCubeFill = ({
                             )]?.delay as number}
                         />
                     </g>
-                    <pattern id="pattern-cubes" patternUnits="userSpaceOnUse" width="40" height="64" viewBox="0 0 10 16">
-                        <use x="0" y="0" href="#cube"/>
-                        <use x="5" y="8" href="#cube"/>
-                        <use x="-5" y="8" href="#cube"/>
+                    <pattern 
+                        id={`pattern-cubes-${postIdx}`} 
+                        patternUnits="userSpaceOnUse" 
+                        width="40" 
+                        height="64" 
+                        viewBox="0 0 10 16"
+                    >
+                        <use x="0" y="0" href={`#cube-${postIdx}`}/>
+                        <use x="5" y="8" href={`#cube-${postIdx}`}/>
+                        <use x="-5" y="8" href={`#cube-${postIdx}`}/>
                     </pattern>
                 </defs>
                 <rect
@@ -140,7 +148,7 @@ export const DiagonalCubeFill = ({
                     stroke={'transparent'}
                     strokeWidth={0}
                     id="canvas" 
-                    fill="url(#pattern-cubes)"
+                    fill={`url(#pattern-cubes-${postIdx})`}
                 />
             </svg>
         </div>

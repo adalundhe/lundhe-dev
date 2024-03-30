@@ -97,7 +97,10 @@ export const BlogSummaryCard = ({
                 </div>
             </div>
             <div className="col-span-4">
-                <DiagonalCubeFill hovering={hovering} />
+                <DiagonalCubeFill 
+                    hovering={hovering} 
+                    postIdx={postIdx}
+                />
             </div>
         </div>
     )

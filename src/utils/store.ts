@@ -72,21 +72,32 @@ export type BlogSummary = {
 
 export type BlogSummaries = Array<BlogSummary>
 
+export type BlogTag = {
+    tag: string;
+    state: 'active' | 'ready';
+}
 
 type BlogStore = {
-    summaries: BlogSummaries,
-    filteredSummaries: BlogSummaries
+    postTags: BlogTag[];
+    filterMethod: 'name-and-tag' | 'name-only' | 'tag-only';
+    sortMethod: 'date' | 'name';
+    sortOrder: 'asc' | 'desc';
+    summaries: BlogSummaries;
+    filteredSummaries: BlogSummaries;
+    setPostTagState: (postTag: BlogTag) => void;
     setSummaries: (
         summaries: BlogSummaries
-    ) => void
+    ) => void;
     filterSummaries: (
         query: string,
-        method: 'name-and-tag' | 'name-only' | 'tag-only'
-    ) => void
+        method: 'name-and-tag' | 'name-only' | 'tag-only',
+        sortMethod: 'date' | 'name',
+        sortOrder: 'asc' | 'desc'
+    ) => void;
     sortSummaries: (
         method: 'date' | 'name',
         order: 'asc' | 'desc'
-    ) => void
+    ) => void;
 }
 
 const sortByName = (
@@ -117,15 +128,52 @@ const sortByDate = (
 ) => direction === 'asc' ? postA.date.getTime() - postB.date.getTime() : postB.date.getTime() - postA.date.getTime())
 
 export const useBlogStore = create<BlogStore>((set, get) => ({
+    postTags: [],
+    filterMethod: 'name-and-tag',
+    sortMethod: 'date',
+    sortOrder: 'desc',
     summaries: [],
     filteredSummaries: [],
+    setPostTagState(postTag: BlogTag){
+
+        const { postTags } = get();
+        const tagIdx = postTags.map(postTag => postTag.tag).indexOf(postTag.tag);
+
+        set({
+            postTags: postTags.map((tag, idx) => {
+
+                if (tagIdx === idx){
+                    return postTag
+                }
+
+                tag.state = 'ready'
+
+                return tag
+
+
+            })
+        })
+
+    },
     setSummaries(summaries: BlogSummaries){
+        const tags = summaries.reduce((tags, summary) => tags.concat(summary.tags), [] as string[])
         set({
             summaries,
+            postTags: [...new Set(tags)].map(
+                tag => ({
+                    tag,
+                    state: 'ready'
+                })
+            ) as BlogTag[],
             filteredSummaries: summaries
         })
     },
-    filterSummaries(query, method){
+    filterSummaries(
+        query, 
+        method,
+        sortMethod,
+        sortOrder
+    ){
         const { summaries } = get()
 
         if (query.length < 1){
@@ -156,27 +204,39 @@ export const useBlogStore = create<BlogStore>((set, get) => ({
        }
 
        if (method === 'name-and-tag' || method === 'tag-only'){
-       summaries.forEach(
-            post => {
+        summaries.forEach(
+                post => {
 
-                const hasTagMatch = post.tags.filter(
-                    tag => tag.toLowerCase().includes(
-                        query.trim().toLowerCase()
-                    )
-                ).length > 0
+                    const hasTagMatch = post.tags.filter(
+                        tag => tag.toLowerCase().includes(
+                            query.trim().toLowerCase()
+                        )
+                    ).length > 0
 
-                if (hasTagMatch){
-                    matches[post.slug] = post
+                    if (hasTagMatch){
+                        matches[post.slug] = post
+                    }
+
                 }
-
-            }
-        )
+            )
         
        }
 
-        set({
-            filteredSummaries: Object.values(matches)
+       const matchedValues = Object.values(matches)
+
+       sortMethod === 'date' ? set({
+            filteredSummaries: sortByDate(
+                matchedValues,
+                sortOrder
+            ),
+            filterMethod: method
+        }) : set({
+            filteredSummaries: sortByName(
+                matchedValues,
+                sortOrder
+            )
         })
+
     },
     sortSummaries(
         method,
@@ -192,7 +252,9 @@ export const useBlogStore = create<BlogStore>((set, get) => ({
             filteredSummaries: sortByDate(
                 filteredSummaries,
                 order
-            )
+            ),
+            sortMethod: method,
+            sortOrder: order
         }) : set({
             summaries: sortByName(
                 summaries,
@@ -201,7 +263,9 @@ export const useBlogStore = create<BlogStore>((set, get) => ({
             filteredSummaries: sortByName(
                 filteredSummaries,
                 order
-            )
+            ),
+            sortMethod: method,
+            sortOrder: order
         })
         
     }
