@@ -4,9 +4,10 @@ export {
     HighlightedHeader, 
     ColoredHighlightedHeader,
     DiagonalStripeFill,
-    DiagonalCubeFill
+    DiagonalCubeFill,
+    AbstractShapeDisplay
 } from './decorations'
-export { BlogSummaryList, BlogPostContainer, type BlogSummary } from './blog'
+export { BlogSummaryList, BlogPostContainer } from './blog'
 export { Footer } from './footer'
 export { NavBar } from './navbar'
 export { ScrollContainer } from './scroll'

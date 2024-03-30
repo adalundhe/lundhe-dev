@@ -8,7 +8,7 @@ interface SiteSettings {
 
 
 export const useSiteSettings = create<SiteSettings>((set) => ({
-    visibilityMode: 'light',
+    visibilityMode: 'dark',
     setVisibilityMode(mode){
         set({
             visibilityMode: mode

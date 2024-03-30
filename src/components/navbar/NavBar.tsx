@@ -18,7 +18,7 @@ export const NavBar = () => {
       )
 
     return (
-        <nav className={`px-4 row-span-2 pt-2 w-[75%] h-fit grid grid-cols-8 gap-4 w-full ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}> 
+        <nav className={`px-4 row-span-2 pt-[2vmin] w-[75%] h-fit grid grid-cols-8 gap-4 w-full ${mode === 'light' ? 'text-[#212121]' : 'text-[#BDBDBD]'}`}> 
             <div className="font-sans flex items-center-justify-center col-span-3">
                 <ColoredNavbarLink 
                     link={''} 

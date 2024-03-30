@@ -33,7 +33,7 @@ export const Footer = () => {
 
         if (
             (scrollDir === 'stable' || scrollDir === 'up')
-            && lastPos < window.outerHeight
+            && lastPos < window.innerHeight
         ){
             animate(scope.current, {
                 height: '60px'

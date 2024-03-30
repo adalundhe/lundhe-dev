@@ -5,5 +5,17 @@
         "date": "2024-03-22",
         "tags": ["test", "not-a-blog"],
         "slug": "test-post"
+    },{
+        "title": "Another post whee!",
+        "summary": "I'm an older post!",
+        "date": "2023-03-22",
+        "tags": ["test", "is-a-blog"],
+        "slug": "another-post-whee"
+    },{
+        "title": "Super new post!",
+        "summary": "I'm an older post!",
+        "date": "2024-03-31",
+        "tags": ["not-a-tag", "is-a-blog"],
+        "slug": "super-new-post"
     }
 ]
